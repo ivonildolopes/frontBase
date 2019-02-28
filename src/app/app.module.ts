@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PdfModule } from './pdf/pdf.module';
+import { SharedModule } from './shared';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { PdfModule } from './pdf/pdf.module';
     BrowserModule,
     AppRoutingModule,
     ContainerModule,
-    PdfModule
+    PdfModule,
+    SharedModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

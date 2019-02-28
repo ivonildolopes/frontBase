@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 
 import { ContainerRoutingModule } from './container-routing.module';
 import { ContainerComponent } from './container/container.component';
+import { LoadingService } from '../shared/loading';
 
 @NgModule({
   declarations: [ContainerComponent],
@@ -14,5 +15,6 @@ import { ContainerComponent } from './container/container.component';
     RouterModule,
     LayoutModule,
   ],
+  providers: [LoadingService]
 })
 export class ContainerModule { }
