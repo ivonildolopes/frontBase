@@ -5,7 +5,12 @@
 export const environment = {
   production: false,
   api: 'http://localhost:8080' ,
-  base: 'http://localhost:8080'
+  base: 'http://localhost:8080',
+
+  firebase: {
+    colocar as informações do firebase no modulo de web
+  }
+
 };
 
 
