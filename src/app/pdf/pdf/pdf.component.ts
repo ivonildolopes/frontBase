@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PdfServiceService } from '../pdf-service.service';
-import { HttpResponse } from '@angular/common/http';
+import { HttpResponse, HttpClient } from '@angular/common/http';
 import { AlertConfirmService } from '../../shared/alert-confirm/alert-confirm.service';
 import { NotificationService } from '../../shared/notification/notification.service';
 
@@ -14,7 +14,8 @@ import Tour from 'tour';
 export class PdfComponent implements OnInit {
   constructor(
     private pdfService: PdfServiceService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private http: HttpClient
   ) {}
 
   ngOnInit() {}
@@ -52,6 +53,18 @@ export class PdfComponent implements OnInit {
     };
 
     AlertConfirmService.showComfirm(`Teste de alerta?:`, 'warning', apertouOk);
+  }
+
+  enviarArquivo(event) {
+
+    if (event.target.files && event.target.files[0]) {
+      const arquivo = event.target.files[0];
+
+      const formData = new FormData();
+      formData.append('arquivo', arquivo);
+      this.pdfService.enviarArquivo(formData);
+    }
+
   }
 
   iniciarTour() {

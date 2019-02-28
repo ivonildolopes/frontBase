@@ -7,4 +7,5 @@
   </span>
   <button class="btn btn-primary 1-passo" (click)="criaPdf()"> Gerar pdf</button>
   <button class="btn btn-primary 2-passo" (click)="msg()"> teste</button>
+  <input type="file" (change)="enviarArquivo($event)" method="post" enctype="multipart/form-data"/>
 </div>
