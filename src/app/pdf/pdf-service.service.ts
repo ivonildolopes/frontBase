@@ -28,6 +28,6 @@ export class PdfServiceService {
   enviarArquivo(arquivo: FormData) {
     this.http
       .post(`${API_JAVA}/upload/`, arquivo)
-      .subscribe(res => console.log('enviou'));
+      .subscribe(res => this.notificationService.success(['Arquivo enviado com sucesso!'], 'Upload de Arquivo'));
   }
 }
