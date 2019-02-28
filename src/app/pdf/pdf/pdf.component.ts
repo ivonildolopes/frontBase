@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PdfServiceService } from '../pdf-service.service';
 import { HttpResponse } from '@angular/common/http';
+import { AlertConfirmService } from '../../shared/alert-confirm/alert-confirm.service';
 
 @Component({
   selector: 'app-pdf',
@@ -34,4 +35,17 @@ export class PdfComponent implements OnInit {
     downloadLink.download = fileName;
     downloadLink.click();
   }
+
+  msg() {
+
+      const apertouOk = (result) => {
+          if (result.value) {
+             console.log(result);
+             // this.exibirRelatorio();
+          }
+      };
+
+      AlertConfirmService.showComfirm(`Teste de alerta?:`, 'warning', apertouOk);
+  }
+
 }
