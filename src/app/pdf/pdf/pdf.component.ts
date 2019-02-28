@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PdfServiceService } from '../pdf-service.service';
 import { HttpResponse } from '@angular/common/http';
 import { AlertConfirmService } from '../../shared/alert-confirm/alert-confirm.service';
+import { NotificationService } from '../../shared/notification/notification.service';
 
 @Component({
   selector: 'app-pdf',
@@ -9,11 +10,12 @@ import { AlertConfirmService } from '../../shared/alert-confirm/alert-confirm.se
   styleUrls: ['./pdf.component.scss']
 })
 export class PdfComponent implements OnInit {
-  constructor(private pdfService: PdfServiceService) {}
+  constructor(private pdfService: PdfServiceService,
+              private notificationService: NotificationService) {}
 
   ngOnInit() {}
 
-  teste() {
+  criaPdf() {
     this.pdfService.geraPdf().subscribe(res => {
       console.log(res.data);
 
@@ -41,6 +43,7 @@ export class PdfComponent implements OnInit {
       const apertouOk = (result) => {
           if (result.value) {
              console.log(result);
+             this.notificationService.success(['Teste de Notificação'], 'teste');
              // this.exibirRelatorio();
           }
       };
