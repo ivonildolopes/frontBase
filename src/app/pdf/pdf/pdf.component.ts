@@ -4,14 +4,18 @@ import { HttpResponse } from '@angular/common/http';
 import { AlertConfirmService } from '../../shared/alert-confirm/alert-confirm.service';
 import { NotificationService } from '../../shared/notification/notification.service';
 
+import Tour from 'tour';
+
 @Component({
   selector: 'app-pdf',
   templateUrl: './pdf.component.html',
   styleUrls: ['./pdf.component.scss']
 })
 export class PdfComponent implements OnInit {
-  constructor(private pdfService: PdfServiceService,
-              private notificationService: NotificationService) {}
+  constructor(
+    private pdfService: PdfServiceService,
+    private notificationService: NotificationService
+  ) {}
 
   ngOnInit() {}
 
@@ -39,16 +43,35 @@ export class PdfComponent implements OnInit {
   }
 
   msg() {
+    const apertouOk = result => {
+      if (result.value) {
+        console.log(result);
+        this.notificationService.success(['Teste de Notificação'], 'teste');
+        // this.exibirRelatorio();
+      }
+    };
 
-      const apertouOk = (result) => {
-          if (result.value) {
-             console.log(result);
-             this.notificationService.success(['Teste de Notificação'], 'teste');
-             // this.exibirRelatorio();
-          }
-      };
-
-      AlertConfirmService.showComfirm(`Teste de alerta?:`, 'warning', apertouOk);
+    AlertConfirmService.showComfirm(`Teste de alerta?:`, 'warning', apertouOk);
   }
 
+  iniciarTour() {
+    const myTour = {
+      canExit: true,
+      nextText: 'Próximo',
+      previousText: 'Anterior',
+      finishText: 'Finalizar',
+      steps: [
+        {
+          target: '.1-passo',
+          content: 'Botao do relatorio'
+        },
+        {
+          target: '.2-passo',
+          content: 'Botao da notificação'
+        },
+      ]
+    };
+
+    Tour.start(myTour);
+  }
 }
