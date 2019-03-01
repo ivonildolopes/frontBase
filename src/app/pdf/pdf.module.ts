@@ -13,6 +13,7 @@ import {
   XHRBackend,
   RequestOptions as ro
 } from '@angular/http';
+import { MaterialModule } from '../material.module';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import {
     PdfRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MaterialModule
   ],
   declarations: [PdfComponent],
   providers: [PdfServiceService]
