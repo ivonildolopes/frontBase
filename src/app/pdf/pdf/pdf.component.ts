@@ -61,7 +61,7 @@ export class PdfComponent implements OnInit {
       const arquivo = event.target.files[0];
 
       const formData = new FormData();
-      formData.append('arquivo', arquivo);
+      formData.append('arquivos', arquivo);
       this.pdfService.enviarArquivo(formData);
     }
 

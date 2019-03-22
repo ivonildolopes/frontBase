@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { PdfRoutingModule } from './pdf-routing.module';
@@ -14,9 +14,12 @@ import {
   RequestOptions as ro
 } from '@angular/http';
 import { MaterialModule } from '../material.module';
+import { ApplicationErrorHandler } from '../app.error-handler';
+import { SharedModule } from '../shared';
 
 @NgModule({
   imports: [
+    SharedModule,
     CommonModule,
     PdfRoutingModule,
     ReactiveFormsModule,
@@ -25,6 +28,6 @@ import { MaterialModule } from '../material.module';
     MaterialModule
   ],
   declarations: [PdfComponent],
-  providers: [PdfServiceService]
+  providers: [PdfServiceService, { provide: ErrorHandler, useClass: ApplicationErrorHandler }]
 })
 export class PdfModule { }

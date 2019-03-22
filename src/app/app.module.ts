@@ -1,6 +1,6 @@
 import { ContainerModule } from './container/container.module';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +15,7 @@ import { FirebaseModule } from './firebase/firebase.module';
 
 import { MaterialModule } from './material.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { ApplicationErrorHandler } from './app.error-handler';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     AngularFireDatabaseModule,
     SharedModule.forRoot(),
   ],
-  providers: [],
+  providers: [{ provide: ErrorHandler, useClass: ApplicationErrorHandler }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

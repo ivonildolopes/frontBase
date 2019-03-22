@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { FirebaseComponent } from './firebase.component';
@@ -8,6 +8,7 @@ import { FirebaseService } from './firebase.service';
 import { ContatoDataService } from './contato-data.service';
 import { FirebaseRoutingModule } from './firebase-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ApplicationErrorHandler } from '../app.error-handler';
 
 
 @NgModule({
@@ -18,7 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
 
   ],
-  providers: [FirebaseService, ContatoDataService],
+  providers: [FirebaseService, ContatoDataService, { provide: ErrorHandler, useClass: ApplicationErrorHandler }],
   declarations: [
     FirebaseComponent,
     FormComponent,
