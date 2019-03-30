@@ -5,10 +5,12 @@ import { HeaderComponent } from './header/header.component';
 import { MenuComponent } from './menu/menu.component';
 import { SettingComponent } from './setting/setting.component';
 import { LoadingService } from '../shared/loading';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   declarations: [FooterComponent, HeaderComponent, MenuComponent, SettingComponent],
   exports: [FooterComponent, HeaderComponent, MenuComponent, SettingComponent],
