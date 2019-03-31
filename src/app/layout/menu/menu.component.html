@@ -19,7 +19,7 @@
       <li class="active treeview menu-open">
         <a href="#">
           <i class="fa fa-laptop"></i>
-          <span>Cadastros</span>
+          <span>Administracao</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
@@ -29,7 +29,7 @@
             <a routerLink="/contato"> <i class="fa fa-circle-o"></i> Clientes</a>
           </li>
           <li class="active">
-            <a routerLink="/"> <i class="fa fa-circle-o"></i> Carros</a>
+            <a routerLink="/veiculo/cadastro"> <i class="fa fa-circle-o"></i> Veiculos</a>
           </li>
           <li class="active">
               <a routerLink="/contato"> <i class="fa fa-circle-o"></i> Usuarios</a>
@@ -37,7 +37,18 @@
         </ul>
       </li>
 
-      <li class="treeview menu-open">
+      <!-- <li [routerLinkActive]="'active'">
+          <a href="#"><i class="fa fa-group"></i>
+              <span class="nav-label">Administração</span>
+              <span class="fa arrow"></span>
+          </a>
+          <ul class="nav nav-second-level collapse" >
+              <li [routerLinkActive]="'active'"><a [routerLink]="['/veiculo/cadastro']">Cadastro de Veiculos</a></li>
+
+          </ul>
+      </li> -->
+
+      <!-- <li class="treeview menu-open">
           <a href="#">
           <i class="fa fa-files-o"></i>
           <span>Administrativo</span>
@@ -53,7 +64,7 @@
           </li>
 
         </ul>
-      </li>
+      </li> -->
 
       <!-- <li>
         <a href="#" [routerLinkActive]="'active'"

@@ -15,6 +15,7 @@ import { FirebaseModule } from './firebase/firebase.module';
 
 import { MaterialModule } from './material.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { AdministracaoModule } from './administracao/administracao.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     ContainerModule,
     PdfModule,
+    AdministracaoModule,
     FirebaseModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
