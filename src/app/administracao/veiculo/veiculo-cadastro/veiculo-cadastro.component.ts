@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-veiculo-cadastro',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VeiculoCadastroComponent implements OnInit {
 
-  constructor() { }
+  veiculoForm: FormGroup;
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.veiculoForm = this.formBuilder.group({
+
+      placa: this.formBuilder.control(''),
+      isVendido: this.formBuilder.control('true')
+    })
   }
 
 }

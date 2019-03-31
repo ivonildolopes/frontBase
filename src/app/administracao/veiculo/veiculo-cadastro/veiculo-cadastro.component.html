@@ -1,3 +1,46 @@
-<p>
-  veiculo-cadastro works!
-</p>
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-sm-12" style="background: white">
+    <h2>
+      <span
+        matTooltipPosition="right"
+        matTooltip="Tela responsável por Consultar, Criar, Alterar e Excluir Etapas"
+        >Cadastro de Veiculos</span
+      >
+    </h2>
+    <ol class="breadcrumb">
+      <li>
+        <a [routerLink]="['/']">Home</a>
+      </li>
+      <li class="active">
+        <strong>Veiculos</strong>
+      </li>
+    </ol>
+  </div>
+</div>
+
+<mat-card class="animated fadeInRight 1-passo" style="margin-top:15px">
+  <!-- <mat-card-title>
+    <label class="card-title-label"
+      >Consultar Etapa
+      <span>
+        <button
+          class="btn btn-info btn-info-tour"
+          type="button"
+          (click)="iniciarTourConsultar()"
+        >
+          <i class="fa fa-info"></i>
+        </button>
+      </span>
+    </label>
+  </mat-card-title> -->
+
+  <div class="hr-line-dashed"></div>
+
+  <mat-card-content> teste aqqui </mat-card-content>
+</mat-card>
+
+<!-- <div *ngIf="consultou">
+    <lg-table [data]="data" [columns]="columns" (editarEvent)="editar($event)" (excluirEvent)="excluir($event)" (novoEvent)="novo($event)"
+     title="Etapas Cadastradas" [filtroRelatorio]="filtro">
+    </lg-table>
+  </div> -->
