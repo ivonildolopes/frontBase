@@ -16,6 +16,7 @@ import { FirebaseModule } from './firebase/firebase.module';
 import { MaterialModule } from './material.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AdministracaoModule } from './administracao/administracao.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AdministracaoModule } from './administracao/administracao.module';
   imports: [
     BrowserModule,
     NoopAnimationsModule,
+    ReactiveFormsModule,
     MaterialModule,
     AppRoutingModule,
     ContainerModule,

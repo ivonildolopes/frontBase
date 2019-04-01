@@ -8,11 +8,13 @@ import { VeiculoCadastroComponent } from './veiculo/veiculo-cadastro/veiculo-cad
 import { VeiculoConsultaComponent } from './veiculo/veiculo-consulta/veiculo-consulta.component';
 import { VeiculoService } from './veiculo/veiculo.service';
 import { MaterialModule } from '../material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     AdministracaoRoutingModule,
+    ReactiveFormsModule,
     MaterialModule
   ],
   declarations: [VeiculoCadastroComponent, VeiculoConsultaComponent],
