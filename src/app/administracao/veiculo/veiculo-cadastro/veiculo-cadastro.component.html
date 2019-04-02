@@ -18,14 +18,14 @@
   </div>
 </div>
 <pre>{{ veiculoForm.value | json }}</pre>
-<mat-card class="animated fadeInRight 1-passo" style="margin-top:15px">
+<mat-card class="1-passo" style="margin-top:15px">
   <!-- <div class="hr-line-dashed"></div> -->
 
   <mat-card-content>
-    <div class="row">
-      <form [formGroup]="veiculoForm" prependId="false">
+    <form [formGroup]="veiculoForm" prependId="false">
+      <div class="row">
         <div class="col-lg-4 col-sm-12 1-passo">
-          <mat-form-field class="example-full-width">
+          <mat-form-field class="mat-form-field example-full-width">
             <input
               matInput
               placeholder="Placa"
@@ -36,19 +36,21 @@
         </div>
 
         <div class="col-lg-4 col-sm-12 2-passo">
-          <mat-form-field class="example-full-width">
+          <mat-form-field class="mat-form-field example-full-width">
             <input matInput placeholder="Renavam" formControlName="renavam" />
           </mat-form-field>
         </div>
 
         <div class="col-lg-4 col-sm-12 3-passo">
-          <mat-form-field class="example-full-width">
+          <mat-form-field class="mat-form-field example-full-width">
             <input matInput placeholder="Chassi" formControlName="chassi" />
           </mat-form-field>
         </div>
+      </div>
 
+      <div class="row">
         <div class="col-lg-6 col-sm-12 4-passo">
-          <mat-form-field class="example-full-width">
+          <mat-form-field class="mat-form-field example-full-width">
             <input
               matInput
               placeholder="Marca/Modelo"
@@ -58,7 +60,7 @@
         </div>
 
         <div class="col-lg-2 col-sm-12 5-passo">
-          <mat-form-field class="example-full-width">
+          <mat-form-field class="mat-form-field example-full-width">
             <input
               matInput
               placeholder="Ano Modelo"
@@ -68,7 +70,7 @@
         </div>
 
         <div class="col-lg-2 col-sm-12 6-passo">
-          <mat-form-field class="example-full-width">
+          <mat-form-field class="mat-form-field example-full-width">
             <input
               matInput
               placeholder="Ano Fabricação"
@@ -78,13 +80,15 @@
         </div>
 
         <div class="col-lg-2 col-sm-12 7-passo">
-          <mat-form-field class="example-full-width">
+          <mat-form-field class="mat-form-field example-full-width">
             <input matInput placeholder="Cor" formControlName="cor" />
           </mat-form-field>
         </div>
+      </div>
 
-        <div class="col-lg-12 col-sm-12 8-passo" >
-          <mat-form-field class="example-full-width">
+      <div class="row">
+        <div class="col-lg-12 col-sm-12 8-passo">
+          <mat-form-field class="mat-form-field example-full-width">
             <textarea
               matInput
               placeholder="Observação"
@@ -94,18 +98,22 @@
             ></textarea>
           </mat-form-field>
         </div>
+      </div>
 
-        <mat-checkbox class="example-margin" formControlName="isVendido">Vendido?</mat-checkbox>
-      </form>
-    </div>
+      <mat-checkbox class="example-margin" formControlName="isVendido"
+        >Vendido?</mat-checkbox
+      >
+    </form>
   </mat-card-content>
   <mat-card-actions>
-      <button class="btn btn-primary" (click)="salvar()" mat-button>Salvar</button>
-      <button class="btn btn-warning" (click)="limpar()" mat-button>Limpar</button>
-    </mat-card-actions>
+    <button class="btn btn-primary" (click)="salvar()" mat-button>
+      Salvar
+    </button>
+    <button class="btn btn-warning" (click)="limpar()" mat-button>
+      Limpar
+    </button>
+  </mat-card-actions>
 </mat-card>
-
-
 
 <!-- <div *ngIf="consultou">
     <lg-table [data]="data" [columns]="columns" (editarEvent)="editar($event)" (excluirEvent)="excluir($event)" (novoEvent)="novo($event)"
