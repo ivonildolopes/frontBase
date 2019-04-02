@@ -10,6 +10,7 @@ const routes: Routes = [
     component: ContainerComponent,
     children: [
       { path: 'veiculo/cadastro', component: VeiculoCadastroComponent},
+      { path: 'veiculo/consulta/:id', component: VeiculoCadastroComponent},
       { path: 'veiculo/consulta', component: VeiculoConsultaComponent},
     ]
   }
