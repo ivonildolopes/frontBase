@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { VeiculoService } from '../veiculo.service';
+import { CPF, CNPJ, TELEFONE, CEP, ANO, PLACA } from "@mask";
 
 @Component({
   selector: 'app-veiculo-cadastro',
@@ -10,6 +11,15 @@ import { VeiculoService } from '../veiculo.service';
 export class VeiculoCadastroComponent implements OnInit {
 
   veiculoForm: FormGroup;
+  mask = PLACA;
+  maskAno = ANO;
+  maskCPF = CPF;
+  maskCNPJ = CNPJ;
+  maskCEP = CEP;
+  maskFax = TELEFONE;
+
+
+  cores = [ 'Preto', 'Branco', 'Azul', 'Amarelo', 'Cinza', 'Prata', 'Vermelho', 'Roxo', 'Verde', 'Marrom'];
   constructor(private formBuilder: FormBuilder,
               private service: VeiculoService) { }
 

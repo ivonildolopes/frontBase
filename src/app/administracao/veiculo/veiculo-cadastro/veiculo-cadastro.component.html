@@ -27,9 +27,9 @@
         <div class="col-lg-4 col-sm-12 1-passo">
           <mat-form-field class="mat-form-field example-full-width">
             <input
+              [textMask]="{ mask: mask, guide: false }"
               matInput
               placeholder="Placa"
-              maxlength="10"
               formControlName="placa"
             />
           </mat-form-field>
@@ -63,6 +63,7 @@
           <mat-form-field class="mat-form-field example-full-width">
             <input
               matInput
+              [textMask]="{ mask: maskAno }"
               placeholder="Ano Modelo"
               formControlName="anoModelo"
             />
@@ -73,6 +74,7 @@
           <mat-form-field class="mat-form-field example-full-width">
             <input
               matInput
+              [textMask]="{ mask: maskAno }"
               placeholder="Ano Fabricação"
               formControlName="anoFabricacao"
             />
@@ -81,7 +83,13 @@
 
         <div class="col-lg-2 col-sm-12 7-passo">
           <mat-form-field class="mat-form-field example-full-width">
-            <input matInput placeholder="Cor" formControlName="cor" />
+            <!-- <input matInput placeholder="Cor" formControlName="cor" /> -->
+            <mat-select placeholder="Cor" formControlName="cor">
+              <mat-option>Selecione</mat-option>
+              <mat-option *ngFor="let cor of cores" [value]="cor">
+                {{ cor }}
+              </mat-option>
+            </mat-select>
           </mat-form-field>
         </div>
       </div>

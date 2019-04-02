@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { NotificationService } from './notification/notification.service';
+import { TextMaskModule } from 'angular2-text-mask';
 
 @NgModule({
   imports: [
@@ -13,10 +14,13 @@ import { NotificationService } from './notification/notification.service';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot() // ToastrModule added
+    ToastrModule.forRoot(), // ToastrModule added
    // CustomMaterialModule,
     // BrowserModule,
-    //TextMaskModule
+    TextMaskModule
+  ],
+  exports: [
+    TextMaskModule
   ],
   declarations: [],
   providers: [NotificationService]

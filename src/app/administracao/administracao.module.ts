@@ -9,10 +9,12 @@ import { VeiculoConsultaComponent } from './veiculo/veiculo-consulta/veiculo-con
 import { VeiculoService } from './veiculo/veiculo.service';
 import { MaterialModule } from '../material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../shared';
 
 @NgModule({
   imports: [
     CommonModule,
+    SharedModule,
     AdministracaoRoutingModule,
     ReactiveFormsModule,
     MaterialModule
