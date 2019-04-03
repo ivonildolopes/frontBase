@@ -47,20 +47,20 @@ export class VeiculoService {
 
   consultaByParams(veiculo) {
     this.loading.display(true);
-    const params = new HttpParams();
+    let params = new HttpParams();
 
-    if (veiculo.placa) { params.set('placa' , veiculo.placa); }
-    if (veiculo.renavam) { params.set('placa' , veiculo.renavam); }
-    if (veiculo.chassi) { params.set('placa' , veiculo.chassi); }
+    if (veiculo.placa) { params = params.set('placa' , veiculo.placa); }
+    if (veiculo.renavam) { params = params.set('renavam' , veiculo.renavam); }
+    if (veiculo.chassi) { params = params.set('chassi' , veiculo.chassi); }
 
-    if (veiculo.modelo) { params.set('placa' , veiculo.modelo); }
-    if (veiculo.anoModelo) { params.set('placa' , veiculo.anoModelo); }
-    if (veiculo.anoFabricacao) { params.set('placa' , veiculo.anoFabricacao); }
-    if (veiculo.cor) { params.set('placa' , veiculo.cor); }
+    if (veiculo.modelo) { params = params.set('modelo' , veiculo.modelo); }
+    if (veiculo.anoModelo) { params = params.set('anoModelo' , veiculo.anoModelo); }
+    if (veiculo.anoFabricacao) { params = params.set('anoFabricacao' , veiculo.anoFabricacao); }
+    if (veiculo.cor) { params = params.set('cor' , veiculo.cor); }
 
-    if (veiculo.isVendido) { params.set('placa' , veiculo.isVendido); }
+    if (veiculo.isVendido) { params = params.set('isVendido' , veiculo.isVendido); }
 
-    return this.http.get<Response>(`${API_JAVA}/veiculo/`, { params });
+    return this.http.get<Response>(`${API_JAVA}/veiculo/params`, { params });
     // return this.http.get<Response>(`${API_JAVA}/veiculo/{id}`).pipe(
     //   finalize(res => {
     //     this.loading.display(false);

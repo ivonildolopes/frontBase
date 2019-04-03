@@ -59,4 +59,16 @@ export class VeiculoConsultaComponent implements OnInit {
     this.inicializaForm();
   }
 
+  editar(event) {
+
+  }
+
+  remover(event) {
+
+  }
+
+  novo() {
+
+  }
+
 }
