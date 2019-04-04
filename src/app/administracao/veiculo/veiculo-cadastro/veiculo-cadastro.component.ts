@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { VeiculoService } from '../veiculo.service';
 import { CPF, CNPJ, TELEFONE, CEP, ANO, PLACA } from "@mask";
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Cor } from '../veiculo.model';
 
 
@@ -26,8 +26,9 @@ export class VeiculoCadastroComponent implements OnInit {
 
   cores = Cor.getCores();
   constructor(private formBuilder: FormBuilder,
-    private service: VeiculoService,
-    private route: ActivatedRoute) { }
+    private service: VeiculoService
+    , private router: Router
+    , private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.inicializaForm();
@@ -81,7 +82,8 @@ export class VeiculoCadastroComponent implements OnInit {
     } else {
       this.service.update(this.id, veiculo).subscribe(res => {
         console.log(res.status);
-        this.inicializaForm();
+        // this.inicializaForm();
+        this.router.navigate(['veiculo/consulta']);
       });
     }
   }
