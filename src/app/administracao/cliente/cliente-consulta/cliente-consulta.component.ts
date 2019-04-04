@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ClienteService } from '../cliente.service';
-import { CPF, TELEFONE, CEP, ANO, PLACA } from '@mask';
+import { CPF, TELEFONE, CEP, DATE } from '@mask';
 
 @Component({
   selector: 'app-cliente-consulta',
@@ -14,11 +14,10 @@ export class ClienteConsultaComponent implements OnInit {
   data: any[];
   clienteForm: FormGroup;
 
-  mask = PLACA;
-  maskAno = ANO;
   maskCPF = CPF;
   maskCEP = CEP;
-  maskFax = TELEFONE;
+  maskTel = TELEFONE;
+  maskDate = DATE;
 
   filter: any;
 

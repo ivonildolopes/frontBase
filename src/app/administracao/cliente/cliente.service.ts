@@ -37,7 +37,7 @@ export class ClienteService {
     if (cliente.nome) { params = params.set('nome' , cliente.nome); }
     if (cliente.cpf) { params = params.set('cpf' , cliente.cpf); }
     if (cliente.rg) { params = params.set('rg' , cliente.rg); }
-
+    if (cliente.endereco) { params = params.set('endereco' , cliente.endereco); }
     if (cliente.telefone) { params = params.set('telefone' , cliente.telefone); }
     if (cliente.email) { params = params.set('email' , cliente.email); }
 

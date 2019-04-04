@@ -44,7 +44,7 @@
 
           <div class="col-lg-2 col-sm-12 2-passo">
             <mat-form-field class="mat-form-field example-full-width">
-              <input matInput placeholder="CPF" formControlName="cpf" />
+              <input matInput placeholder="CPF" formControlName="cpf" [textMask]="{ mask: maskCPF, guide: false }" />
             </mat-form-field>
           </div>
 
@@ -56,7 +56,7 @@
 
           <div class="col-lg-3 col-sm-12 6-passo">
             <mat-form-field class="mat-form-field example-full-width">
-              <input matInput placeholder="Telefone" formControlName="telefone"/>
+              <input matInput placeholder="Telefone" formControlName="telefone" [textMask]="{ mask: maskTel, guide: false }"/>
             </mat-form-field>
           </div>
         </div>

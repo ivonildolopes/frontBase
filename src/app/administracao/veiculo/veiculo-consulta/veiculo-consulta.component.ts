@@ -2,7 +2,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { VeiculoService } from '../veiculo.service';
-import { CPF, CNPJ, TELEFONE, CEP, ANO, PLACA } from "@mask";
+import { CPF, TELEFONE, CEP, ANO, PLACA } from '@mask';
 import { Cor } from '../veiculo.model';
 
 @Component({
@@ -18,7 +18,6 @@ export class VeiculoConsultaComponent implements OnInit {
   mask = PLACA;
   maskAno = ANO;
   maskCPF = CPF;
-  maskCNPJ = CNPJ;
   maskCEP = CEP;
   maskFax = TELEFONE;
 

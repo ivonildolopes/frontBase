@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { ClienteService } from '../cliente.service';
-import { CPF, TELEFONE, CEP, ANO, PLACA } from '@mask';
+import { CPF, TELEFONE, CEP, DATE } from '@mask';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -12,11 +12,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ClienteCadastroComponent implements OnInit {
 
   clienteForm: FormGroup;
-  mask = PLACA;
-  maskAno = ANO;
   maskCPF = CPF;
   maskCEP = CEP;
-  maskFax = TELEFONE;
+  maskTel = TELEFONE;
+  maskDate = DATE;
 
   id: number;
 
