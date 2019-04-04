@@ -2,6 +2,11 @@
    background-color: #265ebf !important;
 }
 
+.mat-form-field {
+   display: block !important;
+   position: relative;
+ }
+
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 body {
