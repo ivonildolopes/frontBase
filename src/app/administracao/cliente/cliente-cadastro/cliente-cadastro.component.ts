@@ -78,13 +78,13 @@ export class ClienteCadastroComponent implements OnInit {
     const cliente = this.clienteForm.getRawValue();
 
     if (!this.id) {
-      this.service.salvar(cliente).subscribe(res => {
-        console.log(res.status);
+      this.service.salvar(cliente).add(res => {
+        // console.log(res.status);
         this.inicializaForm();
       });
     } else {
-      this.service.update(this.id, cliente).subscribe(res => {
-        console.log(res.status);
+      this.service.update(this.id, cliente).add(res => {
+        // console.log(res.status);
         this.router.navigate(['cliente/consulta']);
       });
     }

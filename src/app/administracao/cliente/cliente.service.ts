@@ -18,12 +18,14 @@ export class ClienteService {
     private notificationService: NotificationService
   ) { }
 
-  salvar(cliente): Observable<Response> {
-    return this.http.post<Response>(`${API_JAVA}/cliente`, cliente);
+  salvar(cliente) {
+    return this.http.post<Response>(`${API_JAVA}/cliente`, cliente)
+    .subscribe(res => this.notificationService.send(res));
   }
 
-  update(id, cliente): Observable<Response> {
-    return this.http.put<Response>(`${API_JAVA}/cliente/${id}`, cliente);
+  update(id, cliente) {
+    return this.http.put<Response>(`${API_JAVA}/cliente/${id}`, cliente)
+    .subscribe(res => this.notificationService.send(res));
   }
 
   clienteById(id) {

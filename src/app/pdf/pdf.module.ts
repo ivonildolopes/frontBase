@@ -1,4 +1,5 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
+import { ApplicationErrorHandler } from './../app.errorHandler.component';
 import { CommonModule } from '@angular/common';
 
 import { PdfRoutingModule } from './pdf-routing.module';
@@ -25,6 +26,6 @@ import { MaterialModule } from '../material.module';
     MaterialModule
   ],
   declarations: [PdfComponent],
-  providers: [PdfServiceService]
+  providers: [PdfServiceService, { provide: ErrorHandler, useClass: ApplicationErrorHandler }]
 })
 export class PdfModule { }

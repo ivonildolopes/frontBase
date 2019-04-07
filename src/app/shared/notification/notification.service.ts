@@ -32,6 +32,10 @@ export class NotificationService {
     this.showToastr(messages, title, MessageType.SUCCESS);
   }
 
+  warn2(messages: string, title: string) {
+    this.toastr.warning(messages, title);
+  }
+
 
     send(data: Response) {
         if (isEmpty(data)) return;

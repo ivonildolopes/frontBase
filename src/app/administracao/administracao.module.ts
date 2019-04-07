@@ -1,4 +1,5 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
+import { ApplicationErrorHandler } from './../app.errorHandler.component';
 import { CommonModule } from '@angular/common';
 
 import { AdministracaoRoutingModule } from './administracao-routing.module';
@@ -30,6 +31,7 @@ import { EntradaSaidaService } from './entrada-saida/entrada-saida.service';
   declarations: [VeiculoCadastroComponent, VeiculoConsultaComponent,
                 ClienteCadastroComponent, ClienteConsultaComponent,
                 EntradaSaidaCadastroComponent, EntradaSaidaConsultaComponent],
-  providers: [VeiculoService, ClienteService, EntradaSaidaService]
+  providers: [VeiculoService, ClienteService, EntradaSaidaService,
+    { provide: ErrorHandler, useClass: ApplicationErrorHandler }]
 })
 export class AdministracaoModule { }

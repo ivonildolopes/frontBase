@@ -40,8 +40,9 @@ export class VeiculoService {
 //       }).do(resp => this.notificationService.send(resp));
 // }
 
-  update(id, veiculo): Observable<Response> {
-    return this.http.put<Response>(`${API_JAVA}/veiculo/${id}`, veiculo);
+  update(id, veiculo) {
+    return this.http.put<Response>(`${API_JAVA}/veiculo/${id}`, veiculo)
+    .subscribe(res => this.notificationService.send(res));
       // .subscribe(res => {
       //   console.log(res.status);
       //   this.notificationService.info(['Arquivo enviado com sucesso!'], 'Upload de Arquivo');

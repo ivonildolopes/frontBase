@@ -79,7 +79,7 @@ export class VeiculoCadastroComponent implements OnInit {
         this.inicializaForm();
       });
     } else {
-      this.service.update(this.id, veiculo).subscribe(res => {
+      this.service.update(this.id, veiculo).add(res => {
         // console.log(res.status);
         // this.inicializaForm();
         this.router.navigate(['veiculo/consulta']);

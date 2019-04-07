@@ -1,4 +1,5 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
+import { ApplicationErrorHandler } from './../app.errorHandler.component';
 import { CommonModule } from '@angular/common';
 
 import { FirebaseComponent } from './firebase.component';
@@ -18,7 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
 
   ],
-  providers: [FirebaseService, ContatoDataService],
+  providers: [FirebaseService, ContatoDataService,{ provide: ErrorHandler, useClass: ApplicationErrorHandler }],
   declarations: [
     FirebaseComponent,
     FormComponent,
