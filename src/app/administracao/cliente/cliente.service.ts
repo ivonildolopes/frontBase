@@ -23,11 +23,11 @@ export class ClienteService {
   }
 
   update(id, cliente): Observable<Response> {
-    return this.http.put<Response>(`${API_JAVA}/veiculo/${id}`, cliente);
+    return this.http.put<Response>(`${API_JAVA}/cliente/${id}`, cliente);
   }
 
   clienteById(id) {
-    return this.http.get<Response>(`${API_JAVA}/veiculo/${id}`);
+    return this.http.get<Response>(`${API_JAVA}/cliente/${id}`);
   }
 
   consultaByParams(cliente) {

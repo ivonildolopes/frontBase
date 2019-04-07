@@ -18,6 +18,14 @@ export class ClienteCadastroComponent implements OnInit {
   maskDate = DATE;
 
   id: number;
+  startDate = new Date(1990, 0, 1);
+
+  public mask = {
+    guide: true,
+    showMask: false,
+    // keepCharPositions : true,
+    mask: [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/]
+  };
 
   constructor(private formBuilder: FormBuilder,
     private service: ClienteService
@@ -40,6 +48,7 @@ export class ClienteCadastroComponent implements OnInit {
             cpf: cliente.cpf,
             rg: cliente.rg,
             endereco: cliente.endereco,
+            cep: cliente.cep,
             email: cliente.email,
             dataNascimento: cliente.dataNascimento,
             telefone: cliente.telefone,
@@ -60,6 +69,10 @@ export class ClienteCadastroComponent implements OnInit {
       telefone: this.formBuilder.control(''),
     });
   }
+
+  get value(): Date {
+    return this.clienteForm.controls.dataNascimento.value;
+  };
 
   salvar() {
     const cliente = this.clienteForm.getRawValue();

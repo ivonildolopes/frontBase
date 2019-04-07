@@ -90,7 +90,7 @@
     </mat-card-actions>
   </mat-card>
 </div>
-<!-- 
+<!--
 <div class="row" style="margin-top:10px">
   <mat-card class="animated fadeInRight 1-passo-tabela">
     <mat-card-title>
@@ -101,42 +101,83 @@
         <button
           class="btn btn-success btn-novo 3-passo-tabela"
           (click)="novo()">
-          Cadastrar Veiculo
+          Cadastrar Cliente
         </button>
       </div>
     </mat-card-title>
     <div class="hr-line-dashed"></div>
 
+
+    <div style="width: 100%">
+    <table mat-table [dataSource]="data" class="mat-elevation-z8">
+
+
+      <ng-container matColumnDef="nome">
+        <th mat-header-cell *matHeaderCellDef> Nome </th>
+        <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="rg">
+        <th mat-header-cell *matHeaderCellDef> RG </th>
+        <td mat-cell *matCellDef="let element"> {{element.rg}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="cpf">
+        <th mat-header-cell *matHeaderCellDef> CPF </th>
+        <td mat-cell *matCellDef="let element"> {{element.cpf}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="endereco">
+        <th mat-header-cell *matHeaderCellDef> Endereço </th>
+        <td mat-cell *matCellDef="let element"> {{element.endereco}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="telefone">
+        <th mat-header-cell *matHeaderCellDef> Telefone </th>
+        <td mat-cell *matCellDef="let element"> {{element.telefone}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="colunas"></tr>
+      <tr mat-row *matRowDef="let row; columns: colunas;"></tr>
+    </table>
+  </div> -->
+
+  <div class="row" style="margin-top:10px">
+    <mat-card class="animated fadeInRight 1-passo-tabela">
+      <mat-card-title>
+        <div>
+          <label class="card-title-label">
+
+          </label>
+          <button
+            class="btn btn-success btn-novo 3-passo-tabela"
+            (click)="novo()">
+            Cadastrar Cliente
+          </button>
+        </div>
+      </mat-card-title>
+      <div class="hr-line-dashed"></div>
     <mat-card-content>
       <div class="table-responsive">
         <table td-data-table class="table-striped table-hover">
           <thead>
             <tr td-data-table-column-row>
-              <th width="90px" td-data-table-column>
-                Placa
+              <th width="200px" td-data-table-column>
+                Nome
               </th>
 
-              <th width="180px" td-data-table-column>
-                Renavam
+              <th width="160px" td-data-table-column>
+                RG
+              </th>
+              <th width="160px" td-data-table-column>
+                CPF
               </th>
               <th width="200px" td-data-table-column>
-                Chassi
-              </th>
-              <th width="200px" td-data-table-column>
-                Modelo
+                Endereço
               </th>
               <th td-data-table-column>
-                Ano Modelo
-              </th>
-              <th td-data-table-column>
-                Ano Fabricação
-              </th>
-              <th width="90px" td-data-table-column>
-                Cor
-              </th>
-
-              <th td-data-table-column>
-                Vendido
+                Telefone
               </th>
 
               <th td-data-table-column width="60px">
@@ -148,35 +189,23 @@
           <tbody class="2-passo-tabela">
             <tr td-data-table-row *ngFor="let row of data">
               <td td-data-table-cell style="word-break:break-all">
-                {{ row.placa }}
+                {{ row.nome }}
               </td>
 
               <td td-data-table-cell style="word-break:break-all">
-                {{ row.renavam }}
+                {{ row.rg }}
               </td>
 
               <td td-data-table-cell style="word-break:break-all">
-                {{ row.chassi }}
+                {{ row.cpf }}
               </td>
 
               <td td-data-table-cell style="word-break:break-all">
-                {{ row.modelo }}
+                {{ row.endereco }}
               </td>
 
               <td td-data-table-cell style="word-break:break-all">
-                {{ row.anoModelo }}
-              </td>
-
-              <td td-data-table-cell style="word-break:break-all">
-                {{ row.anoFabricacao }}
-              </td>
-
-              <td td-data-table-cell style="word-break:break-all">
-                {{ row.cor }}
-              </td>
-
-              <td td-data-table-cell style="word-break:break-all">
-                {{ row.isVendido ? "SIM" : "NÃO" }}
+                {{ row.telefone }}
               </td>
 
               <td td-data-table-cell align="center" style="font-size:20px">
@@ -198,4 +227,4 @@
       </div>
     </mat-card-content>
   </mat-card>
-</div> -->
+</div>

@@ -21,6 +21,9 @@ export class ClienteConsultaComponent implements OnInit {
 
   filter: any;
 
+  colunas: string[] = ['nome', 'rg', 'cpf', 'endereco', 'telefone'];
+  // dataSource = ELEMENT_DATA;
+
   constructor(private formBuilder: FormBuilder,
     private service: ClienteService
     , private router: Router
