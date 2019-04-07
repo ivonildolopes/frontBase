@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { EntradaSaidaService } from '../entrada-saida.service';
 import { CPF, TELEFONE, CEP, DATE } from '@mask';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ClienteService } from '../../cliente/cliente.service';
 
 @Component({
   selector: 'app-entrada-saida-cadastro',
@@ -34,7 +35,8 @@ export class EntradaSaidaCadastroComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
     private service: EntradaSaidaService
     , private router: Router
-    , private route: ActivatedRoute) { }
+    , private route: ActivatedRoute
+    , private clienteService: ClienteService) { }
 
   ngOnInit() {
     this.inicializaForm();
@@ -81,9 +83,13 @@ export class EntradaSaidaCadastroComponent implements OnInit {
 
 
   salvar() {
-    const entradaSaida = this.entradaSaidaForm.getRawValue();
+    let entradaSaida = this.entradaSaidaForm.getRawValue();
 
-    if (!this.id) {
+    if(entradaSaida.cliente == '' ) {
+      entradaSaida.cliente = null;
+    }
+
+     if (!this.id) {
       this.service.salvar(entradaSaida).subscribe(res => {
         console.log(res.status);
         this.inicializaForm();
@@ -98,6 +104,24 @@ export class EntradaSaidaCadastroComponent implements OnInit {
 
   limpar() {
     this.inicializaForm();
+  }
+
+  getCliente(entradaSaida) {
+    const cliente: any = {
+      nome: '',
+      cpf: '123.456.789-11',
+      rg: '',
+      endereco: '',
+      telefone: '',
+      email: ''
+    }
+
+
+    this.clienteService.consultaByParams(cliente).subscribe(res => {
+      entradaSaida.cliente = res.data[0];
+    });
+
+
   }
 
 }
