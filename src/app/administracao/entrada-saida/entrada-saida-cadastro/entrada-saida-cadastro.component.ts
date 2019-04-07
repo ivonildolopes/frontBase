@@ -90,8 +90,8 @@ export class EntradaSaidaCadastroComponent implements OnInit {
     }
 
      if (!this.id) {
-      this.service.salvar(entradaSaida).subscribe(res => {
-        console.log(res.status);
+      this.service.salvar(entradaSaida).add(res => {
+        // console.log(res.status);
         this.inicializaForm();
       });
     } else {

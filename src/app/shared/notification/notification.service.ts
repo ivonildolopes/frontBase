@@ -32,24 +32,25 @@ export class NotificationService {
     this.showToastr(messages, title, MessageType.SUCCESS);
   }
 
-  /*
+
     send(data: Response) {
         if (isEmpty(data)) return;
-        if (!isEmpty(data.infos)) this.info(data.infos)
-        if (!isEmpty(data.warns)) this.warn(data.warns)
-        if (!isEmpty(data.errors)) this.error(data.errors)
+        if (!isEmpty(data.infos)) {this.info(data.infos, ''); }
+        if (!isEmpty(data.warns)) {this.warn(data.warns, ''); }
+        if (!isEmpty(data.errors)) {this.error(data.errors, ''); }
     }
 
-    */
+
 
   public showToastr(messages: string[], title: string, type: MessageType) {
     // this.setOptions()
     switch (type) {
       case MessageType.ERROR:
-        this.toastr.error(this.trataMessage(messages), title, this.configDefault())
-        .onTap
-        .pipe(take(1))
-        .subscribe(() => this.chamaOutroMetodo(messages));
+        this.toastr.error(this.trataMessage(messages), title);
+        // this.toastr.error(this.trataMessage(messages), title, this.configDefault())
+        // .onTap
+        // .pipe(take(1))
+        // .subscribe(() => this.chamaOutroMetodo(messages));
         break;
       case MessageType.INFO:
         this.toastr.info(this.trataMessage(messages), title, {timeOut: 3000 , 'positionClass': 'toast-bottom-right',});

@@ -73,14 +73,14 @@ export class VeiculoCadastroComponent implements OnInit {
     const veiculo = this.veiculoForm.getRawValue();
 
     if (!this.id) {
-      this.service.salvar(veiculo).subscribe(res => {
-        console.log(res.status);
+      this.service.salvar(veiculo).add(res => {
+        // console.log(res.status);
         //  this.notificationService.info(['Arquivo enviado com sucesso!'], 'Upload de Arquivo');
         this.inicializaForm();
       });
     } else {
       this.service.update(this.id, veiculo).subscribe(res => {
-        console.log(res.status);
+        // console.log(res.status);
         // this.inicializaForm();
         this.router.navigate(['veiculo/consulta']);
       });

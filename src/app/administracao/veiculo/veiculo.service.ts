@@ -4,8 +4,12 @@ import { LoadingService } from '../../shared/loading';
 import { NotificationService } from '../../shared/notification/notification.service';
 import { API_JAVA } from 'src/app/app.api';
 import { Observable } from 'rxjs';
+import { catchError, finalize } from 'rxjs/operators';
+// import 'rxjs/add/operator/finally';
+// import 'rxjs/add/operator/delay';
 // import 'rxjs/add/operator/finally';
 import { Response } from 'src/app/api.response.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -18,13 +22,23 @@ export class VeiculoService {
     private notificationService: NotificationService
   ) {}
 
-  salvar(veiculo): Observable<Response> {
-    return this.http.post<Response>(`${API_JAVA}/veiculo`, veiculo);
+  salvar(veiculo: any) {
+    return this.http.post<Response>(`${API_JAVA}/veiculo`, veiculo)
+    .subscribe(res => this.notificationService.send(res));
       // .subscribe(res => {
       //   console.log(res.status);
       //   this.notificationService.info(['Arquivo enviado com sucesso!'], 'Upload de Arquivo');
       // });
   }
+
+//   adicionarAgendaEvento(agendaDto: any) {
+//     this.loading.display(true)
+//     return this.http.post<Response>(`${API_JAVA}/agenda/evento`, agendaDto)
+//     .pipe(
+//       finalize(() => {
+//         this.loading.display(false);
+//       }).do(resp => this.notificationService.send(resp));
+// }
 
   update(id, veiculo): Observable<Response> {
     return this.http.put<Response>(`${API_JAVA}/veiculo/${id}`, veiculo);

@@ -23,7 +23,8 @@ export class EntradaSaidaService {
     return this.http.get<Response>(`${API_JAVA}/entradaSaida/listas`);
   }
 
-  salvar(entradaSaida): Observable<Response> {
-    return this.http.post<Response>(`${API_JAVA}/entradaSaida`, entradaSaida);
+  salvar(entradaSaida) {
+    return this.http.post<Response>(`${API_JAVA}/entradaSaida`, entradaSaida)
+    .subscribe(res => this.notificationService.send(res));
   }
 }
