@@ -1,0 +1,72 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-sm-12" style="background: white">
+    <h2>
+      <span
+        matTooltipPosition="right"
+        matTooltip="Tela responsável por Consultar, Criar, Alterar e Excluir Etapas"
+        >Entrada Saida de Veiculos</span
+      >
+    </h2>
+    <ol class="breadcrumb">
+      <li>
+        <a [routerLink]="['/dashboard']">Home</a>
+      </li>
+      <li class="active">
+        <strong>Entrada Saida de Veiculos</strong>
+      </li>
+    </ol>
+  </div>
+</div>
+
+<div class="row" style="margin-top:10px">
+  <pre>{{ entradaSaidaForm.value | json }}</pre>
+  <mat-card class="animated fadeInRight 1-passo">
+    <mat-card-title>
+
+    </mat-card-title>
+
+    <div class="hr-line-dashed"></div>
+
+    <mat-card-content>
+      <form [formGroup]="entradaSaidaForm" prependId="false">
+        <div class="row">
+
+          <div class="col-lg-3 col-sm-12 2-passo">
+            <mat-radio-group aria-label="Tipo de Movimentação" formControlName="tipo">
+              <mat-radio-button value="1">Entrada</mat-radio-button>
+              <mat-radio-button value="2">Saida</mat-radio-button>
+            </mat-radio-group>
+          </div>
+
+
+          <div class="col-lg-2 col-sm-12 2-passo">
+            <mat-form-field class="mat-form-field example-full-width">
+              <input matInput placeholder="valor" formControlName="valor" [textMask]="{ mask: maskCPF, guide: false }" />
+            </mat-form-field>
+          </div>
+
+
+          <div class="col-lg-2 col-sm-12 6-passo" >
+            <mat-form-field class="mat-form-field example-full-width">
+              <!-- <input matInput placeholder="Data Nascimento" formControlName="dataNascimento" [textMask]="{ mask: maskDate, guide: false }"/> -->
+              <input matInput [matDatepicker]="picker" formControlName="data" placeholder="Data">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="hr-line-dashed"></div>
+      </form>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button class="btn btn-primary" (click)="salvar()" mat-button>
+        Salvar
+      </button>
+      <button class="btn btn-warning" (click)="limpar()" mat-button>
+        Limpar
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -5,6 +5,8 @@ import { VeiculoCadastroComponent } from './veiculo/veiculo-cadastro/veiculo-cad
 import { VeiculoConsultaComponent } from './veiculo/veiculo-consulta/veiculo-consulta.component';
 import { ClienteCadastroComponent } from './cliente/cliente-cadastro/cliente-cadastro.component';
 import { ClienteConsultaComponent } from './cliente/cliente-consulta/cliente-consulta.component';
+import { EntradaSaidaCadastroComponent } from './entrada-saida/entrada-saida-cadastro/entrada-saida-cadastro.component';
+import { EntradaSaidaConsultaComponent } from './entrada-saida/entrada-saida-consulta/entrada-saida-consulta.component';
 
 const routes: Routes = [
   // { path: 'admin', redirectTo: '/admin/veiculo/cadastro', pathMatch: 'full' },
@@ -17,6 +19,9 @@ const routes: Routes = [
       { path: 'cliente/cadastro', component: ClienteCadastroComponent},
       { path: 'cliente/consulta/:id', component: ClienteCadastroComponent},
       { path: 'cliente/consulta', component: ClienteConsultaComponent},
+      { path: 'entradaSaida/cadastro', component: EntradaSaidaCadastroComponent},
+      { path: 'entradaSaida/consulta/:id', component: EntradaSaidaCadastroComponent},
+      { path: 'entradaSaida/consulta', component: EntradaSaidaConsultaComponent},
 
     ]
   }

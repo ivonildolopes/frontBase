@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AdministracaoRoutingModule } from './administracao-routing.module';
-import { AdministracaoService } from './administracao.service';
 
 import { MaterialModule } from '../material.module';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -16,6 +15,10 @@ import { ClienteCadastroComponent } from './cliente/cliente-cadastro/cliente-cad
 import { ClienteConsultaComponent } from './cliente/cliente-consulta/cliente-consulta.component';
 import { ClienteService } from './cliente/cliente.service';
 
+import { EntradaSaidaCadastroComponent } from './entrada-saida/entrada-saida-cadastro/entrada-saida-cadastro.component';
+import { EntradaSaidaConsultaComponent } from './entrada-saida/entrada-saida-consulta/entrada-saida-consulta.component';
+import { EntradaSaidaService } from './entrada-saida/entrada-saida.service';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -25,7 +28,8 @@ import { ClienteService } from './cliente/cliente.service';
     MaterialModule
   ],
   declarations: [VeiculoCadastroComponent, VeiculoConsultaComponent,
-                ClienteCadastroComponent, ClienteConsultaComponent],
-  providers: [AdministracaoService, VeiculoService, ClienteService]
+                ClienteCadastroComponent, ClienteConsultaComponent,
+                EntradaSaidaCadastroComponent, EntradaSaidaConsultaComponent],
+  providers: [VeiculoService, ClienteService, EntradaSaidaService]
 })
 export class AdministracaoModule { }
