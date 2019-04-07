@@ -6,6 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { NotificationService } from './notification/notification.service';
 import { TextMaskModule } from 'angular2-text-mask';
+import { SelectSimplesComponent } from './seletc/select-simples/select-simples.component';
+import { MaterialModule } from '../material.module';
 
 @NgModule({
   imports: [
@@ -17,12 +19,13 @@ import { TextMaskModule } from 'angular2-text-mask';
     ToastrModule.forRoot(), // ToastrModule added
    // CustomMaterialModule,
     // BrowserModule,
-    TextMaskModule
+    TextMaskModule,
+    MaterialModule
   ],
   exports: [
     TextMaskModule
   ],
-  declarations: [],
+  declarations: [SelectSimplesComponent],
   providers: [NotificationService]
 })
 export class SharedModule {

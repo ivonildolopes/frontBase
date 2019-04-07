@@ -1,0 +1,7 @@
+<mat-form-field [formGroup]="form">
+  <mat-select formControlName="{{controlName}}" (change)="passaObjeto($event)">
+     <mat-option *ngFor="let objeto of objetos" [value]="objeto" > <!-- (onSelectionChange)="passaId(objeto)"> -->
+      {{objeto.nome}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

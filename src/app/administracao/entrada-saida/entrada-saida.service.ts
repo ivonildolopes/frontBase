@@ -22,4 +22,8 @@ export class EntradaSaidaService {
   populaListas() {
     return this.http.get<Response>(`${API_JAVA}/entradaSaida/listas`);
   }
+
+  salvar(entradaSaida): Observable<Response> {
+    return this.http.post<Response>(`${API_JAVA}/entradaSaida`, entradaSaida);
+  }
 }

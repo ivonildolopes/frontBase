@@ -72,6 +72,8 @@ export class EntradaSaidaCadastroComponent implements OnInit {
   inicializaForm() {
     this.entradaSaidaForm = this.formBuilder.group({
       tipo: this.formBuilder.control(''),
+      veiculo: this.formBuilder.control(''),
+      cliente: this.formBuilder.control(''),
       valor: this.formBuilder.control(''),
       data: this.formBuilder.control(''),
     });
@@ -82,10 +84,10 @@ export class EntradaSaidaCadastroComponent implements OnInit {
     const entradaSaida = this.entradaSaidaForm.getRawValue();
 
     if (!this.id) {
-      // this.service.salvar(entradaSaida).subscribe(res => {
-      //   console.log(res.status);
-      //   this.inicializaForm();
-      // });
+      this.service.salvar(entradaSaida).subscribe(res => {
+        console.log(res.status);
+        this.inicializaForm();
+      });
     } else {
       // this.service.update(this.id, entradaSaida).subscribe(res => {
       //   console.log(res.status);
