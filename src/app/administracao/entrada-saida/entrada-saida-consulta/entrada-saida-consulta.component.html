@@ -1,3 +1,214 @@
-<p>
-  entrada-saida-consulta works!
-</p>
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-12" style="background: white">
+      <h2>
+        <span
+          matTooltipPosition="right"
+          matTooltip="Tela responsável por Consultar, Criar, Alterar e Excluir Etapas"
+          >Consulta de Entrada e Saide de Veiculos</span
+        >
+      </h2>
+      <ol class="breadcrumb">
+        <li>
+          <a [routerLink]="['/dashboard']">Home</a>
+        </li>
+        <li class="active">
+          <strong>Consulta de Entrada e Saide de Veiculos</strong>
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top:10px">
+    <pre>{{ entradaSaidaForm.value | json }}</pre>
+    <mat-card class="animated fadeInRight 1-passo">
+      <mat-card-title>
+        <!-- <label class="card-title-label">Consultar Função
+        <span>
+          <button class="btn btn-info btn-info-tour" type="button" (click)="iniciarTourConsultar()">
+            <i class="fa fa-info"></i>
+          </button>
+        </span>
+      </label> -->
+      </mat-card-title>
+
+      <div class="hr-line-dashed"></div>
+
+      <mat-card-content>
+        <form [formGroup]="entradaSaidaForm" prependId="false">
+            <div class="row">
+                <!-- <app-select-simples [form]="entradaSaidaForm" controlName="veiculo" [objetos]="listVeiculos"> </app-select-simples> -->
+
+                <div class="col-lg-12 col-sm-12 2-passo">
+                  <mat-radio-group
+                    aria-label="Tipo de Movimentação"
+                    formControlName="tipo"
+                  >
+                    <mat-radio-button value="1">Entrada de Veiculos</mat-radio-button>
+                    <mat-radio-button value="2">Saida de Veiculos</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="col-lg-6 col-sm-12 2-passo">
+                  <mat-form-field>
+                    <mat-label>Veiculo</mat-label>
+                    <mat-select formControlName="veiculo">
+                      <mat-option>Selecione um veiculos</mat-option>
+                      <mat-option
+                        *ngFor="let veiculo of listVeiculos"
+                        [value]="veiculo"
+                        >{{ veiculo.placa }} - {{ veiculo.modelo }} -
+                        {{ veiculo.anoFabricacao }}/{{ veiculo.anoModelo }} - {{veiculo.cor}}</mat-option
+                      >
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+
+              <div class="col-lg-6 col-sm-12 2-passo" *ngIf="entradaSaidaForm.controls.tipo.value == 2">
+                    <mat-form-field>
+                      <mat-label>Cliente</mat-label>
+                      <mat-select formControlName="cliente">
+                        <mat-option>Selecione um Cliente</mat-option>
+                        <mat-option
+                          *ngFor="let cliente of listClientes"
+                          [value]="cliente"
+                          >{{ cliente.nome }}</mat-option
+                        >
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+
+               <div class="col-lg-2 col-sm-12 6-passo">
+                  <mat-form-field class="mat-form-field example-full-width">
+                    <!-- <input matInput placeholder="Data Nascimento" formControlName="dataNascimento" [textMask]="{ mask: maskDate, guide: false }"/> -->
+                    <input
+                      matInput id="dayaInicio"
+                      [matDatepicker]="picker"
+                      formControlName="dataInicio"
+                      placeholder="Data Inicio"
+                    />
+                    <mat-datepicker-toggle
+                      matSuffix
+                      [for]="picker"
+                    ></mat-datepicker-toggle>
+                    <mat-datepicker
+                      #picker
+                      startView="year"
+                    ></mat-datepicker>
+                  </mat-form-field>
+                </div>
+
+                <div class="col-lg-2 col-sm-12 6-passo">
+                    <mat-form-field class="mat-form-field example-full-width">
+                      <!-- <input matInput placeholder="Data Nascimento" formControlName="dataNascimento" [textMask]="{ mask: maskDate, guide: false }"/> -->
+                      <input id="dataFim"
+                        matInput
+                        [matDatepicker]="picker1"
+                        formControlName="dataFim"
+                        placeholder="Data Fim"
+                      />
+                      <mat-datepicker-toggle
+                        matSuffix
+                        [for]="picker1"
+                      ></mat-datepicker-toggle>
+                      <mat-datepicker
+                        #picker1
+                        startView="year"
+                      ></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+              </div>
+
+              <div class="hr-line-dashed"></div>
+        </form>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button class="btn btn-primary" (click)="consultar()" mat-button>
+          Consultar
+        </button>
+        <button class="btn btn-warning" (click)="limpar()" mat-button>
+          Limpar
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+
+    <div class="row" style="margin-top:10px">
+      <mat-card class="animated fadeInRight 1-passo-tabela">
+        <mat-card-title>
+          <div>
+            <label class="card-title-label">
+
+            </label>
+            <button
+              class="btn btn-success btn-novo 3-passo-tabela"
+              (click)="novo()">
+              Nova Movimentação
+            </button>
+          </div>
+        </mat-card-title>
+        <div class="hr-line-dashed"></div>
+      <mat-card-content>
+        <div class="table-responsive">
+          <table td-data-table class="table-striped table-hover">
+            <thead>
+              <tr td-data-table-column-row>
+                <th width="200px" td-data-table-column>
+                  Tipo Movimentação
+                </th>
+
+                <th width="160px" td-data-table-column>
+                  Veiculo
+                </th>
+                <th width="160px" td-data-table-column>
+                  Valor
+                </th>
+                <th width="200px" td-data-table-column>
+                  Data
+                </th>
+
+                <th td-data-table-column width="60px">
+                  <span>Opções</span>
+                </th>
+              </tr>
+            </thead>
+
+            <tbody class="2-passo-tabela">
+              <tr td-data-table-row *ngFor="let row of movimentacoes">
+                <td td-data-table-cell style="word-break:break-all">
+                  {{ row.tipo == 1 ? 'Entrada de Veiculo' : 'Saida de Veiculo' }}
+                </td>
+
+                <td td-data-table-cell style="word-break:break-all">
+                  {{ row.veiculo }}
+                </td>
+
+                <td td-data-table-cell style="word-break:break-all">
+                  {{ row.valor  | currency:'BRL': 'symbol'  }}
+                </td>
+
+                <td td-data-table-cell style="word-break:break-all">
+                  {{ row.data | date: 'dd/MM/yyyy' }}
+                </td>
+
+                <td td-data-table-cell align="center" style="font-size:20px">
+                  <a (click)="editar(row)">
+                    <i
+                      class="crud-icon fa fa-pencil text-warning 6-passo-tabela"
+                    ></i>
+                  </a>
+
+                  <a (click)="remover(row)">
+                    <i
+                      class="crud-icon fa fa-trash text-danger 6-passo-tabela"
+                    ></i>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
