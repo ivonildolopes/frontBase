@@ -20,6 +20,10 @@ import { EntradaSaidaCadastroComponent } from './entrada-saida/entrada-saida-cad
 import { EntradaSaidaConsultaComponent } from './entrada-saida/entrada-saida-consulta/entrada-saida-consulta.component';
 import { EntradaSaidaService } from './entrada-saida/entrada-saida.service';
 
+import { OrcamentoCadastroComponent } from './orcamento/orcamento-cadastro/orcamento-cadastro.component';
+import { OrcamentoConsultaComponent } from './orcamento/orcamento-consulta/orcamento-consulta.component';
+import { OrcamentoService } from './orcamento/orcamento.service';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -30,8 +34,9 @@ import { EntradaSaidaService } from './entrada-saida/entrada-saida.service';
   ],
   declarations: [VeiculoCadastroComponent, VeiculoConsultaComponent,
                 ClienteCadastroComponent, ClienteConsultaComponent,
-                EntradaSaidaCadastroComponent, EntradaSaidaConsultaComponent],
-  providers: [VeiculoService, ClienteService, EntradaSaidaService,
+                EntradaSaidaCadastroComponent, EntradaSaidaConsultaComponent,
+                OrcamentoCadastroComponent, OrcamentoConsultaComponent],
+  providers: [VeiculoService, ClienteService, EntradaSaidaService, OrcamentoService,
     { provide: ErrorHandler, useClass: ApplicationErrorHandler }]
 })
 export class AdministracaoModule { }

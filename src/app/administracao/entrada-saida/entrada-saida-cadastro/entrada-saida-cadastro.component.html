@@ -19,7 +19,7 @@
 </div>
 
 <div class="row" style="margin-top:10px">
-  <pre>{{ entradaSaidaForm.value | json }}</pre>
+  <!-- <pre>{{ entradaSaidaForm.value | json }}</pre> -->
   <mat-card class="animated fadeInRight 1-passo">
     <mat-card-title> </mat-card-title>
 
@@ -94,8 +94,7 @@
               ></mat-datepicker-toggle>
               <mat-datepicker
                 #picker
-                startView="year"
-                [startAt]="startDate"
+                startView="year"                
               ></mat-datepicker>
             </mat-form-field>
           </div>
@@ -109,9 +108,9 @@
       <button class="btn btn-primary" (click)="salvar()" mat-button>
         Salvar
       </button>
-      <button class="btn btn-warning" (click)="limpar()" mat-button>
+      <!-- <button class="btn btn-warning" (click)="limpar()" mat-button>
         Limpar
-      </button>
+      </button> -->
     </mat-card-actions>
   </mat-card>
 </div>

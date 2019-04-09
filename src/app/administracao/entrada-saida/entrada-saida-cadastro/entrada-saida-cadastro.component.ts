@@ -46,8 +46,8 @@ export class EntradaSaidaCadastroComponent implements OnInit {
       this.listVeiculos = this.comboList.veiculos;
       this.listClientes = this.comboList.clientes;
 
-      console.log(this.listVeiculos);
-    })
+      // console.log(this.listVeiculos);
+    });
 
     this.route.params
       .subscribe(params => {

@@ -76,7 +76,8 @@ export class VeiculoCadastroComponent implements OnInit {
       this.service.salvar(veiculo).add(res => {
         // console.log(res.status);
         //  this.notificationService.info(['Arquivo enviado com sucesso!'], 'Upload de Arquivo');
-        this.inicializaForm();
+        // this.inicializaForm();
+        this.router.navigate(['entradaSaida/cadastro']);
       });
     } else {
       this.service.update(this.id, veiculo).add(res => {
