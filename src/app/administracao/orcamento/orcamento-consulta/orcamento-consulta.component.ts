@@ -16,7 +16,7 @@ export class OrcamentoConsultaComponent implements OnInit {
   listVeiculos: any[];
   listClientes: any[];
 
-  movimentacoes: any[];
+  orcamentos: any[];
 
   constructor(private formBuilder: FormBuilder,
     private service: OrcamentoService
@@ -36,9 +36,10 @@ export class OrcamentoConsultaComponent implements OnInit {
   }
 
   inicializaForm() {
-    this.orcamentoForm = this.formBuilder.group({      
+    this.orcamentoForm = this.formBuilder.group({
       veiculo: this.formBuilder.control(''),
-      data: this.formBuilder.control(''),
+      dataInicio: this.formBuilder.control(''),
+      dataFim: this.formBuilder.control(''),
       valor: this.formBuilder.control(''),
     });
   }
@@ -46,14 +47,14 @@ export class OrcamentoConsultaComponent implements OnInit {
   consultar() {
     const entradaSaida = this.orcamentoForm.getRawValue();
 
-    // this.service.consultaByParams(entradaSaida).subscribe( res => {      
+    // this.service.consultaByParams(entradaSaida).subscribe( res => {
     //   this.movimentacoes = res.data;
     // });
   }
 
   limpar() {
     this.inicializaForm();
-    this.movimentacoes = [];
+    this.orcamentos = [];
   }
 
   novo() {
