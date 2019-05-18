@@ -46,15 +46,15 @@
             </mat-form-field>
           </div>
 
-          <div class="col-lg-2 col-sm-12 2-passo">
+          <!-- <div class="col-lg-2 col-sm-12 2-passo">
             <mat-form-field class="mat-form-field example-full-width">
               <input
                 matInput
                 placeholder="valor"
-                formControlName="valor"
+                formControlName="valor" 
               />
             </mat-form-field>
-          </div>
+          </div> -->
 
           <div class="col-lg-2 col-sm-12 6-passo">
             <mat-form-field class="mat-form-field example-full-width">
@@ -111,4 +111,89 @@
     </mat-card-actions>
   </mat-card>
 </div>
+
+
+
+<div class="row" style="margin-top:10px">
+  <mat-card class="animated fadeInRight 1-passo-tabela">
+    <mat-card-title>
+      <div>
+        <label class="card-title-label">
+
+        </label>
+        <!-- <button
+          class="btn btn-success btn-novo 3-passo-tabela"
+          (click)="novo()">
+          Nova Movimentação
+        </button> -->
+      </div>
+    </mat-card-title>
+    <div class="hr-line-dashed"></div>
+  <mat-card-content>
+    <div class="table-responsive">
+      <table td-data-table class="table-striped table-hover">
+        <thead>
+          <tr td-data-table-column-row>
+            
+            <th width="200px" td-data-table-column>
+              Veiculo
+            </th>
+            <th width="250px" td-data-table-column>
+              descrição
+            </th>
+            <th width="160px" td-data-table-column>
+              Valor
+            </th>
+            <th width="200px" td-data-table-column>
+              Data
+            </th>
+
+            <th td-data-table-column width="60px">
+              <span>Opções</span>
+            </th>
+          </tr>
+        </thead>
+
+        <tbody class="2-passo-tabela">
+          <tr td-data-table-row *ngFor="let row of orcamentos">
+           
+            
+
+            <td td-data-table-cell style="word-break:break-all">
+              {{ row.veiculoDto }}
+            </td>
+
+            <td td-data-table-cell style="word-break:break-all">
+                {{ row.descricao }}
+           </td>
+
+            <td td-data-table-cell style="word-break:break-all">
+              {{ row.valor  | currency:'BRL': 'symbol'  }}
+            </td>
+
+            <td td-data-table-cell style="word-break:break-all">
+              {{ row.data | date: 'dd/MM/yyyy' }}
+            </td>
+
+            <td td-data-table-cell align="center" style="font-size:20px">
+              <!-- <a (click)="editar(row)">
+                <i
+                  class="crud-icon fa fa-pencil text-warning 6-passo-tabela"
+                ></i>
+              </a>
+
+              <a (click)="remover(row)">
+                <i
+                  class="crud-icon fa fa-trash text-danger 6-passo-tabela"
+                ></i>
+              </a> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </mat-card-content>
+</mat-card>
+</div>
+
 

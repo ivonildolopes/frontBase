@@ -45,11 +45,12 @@ export class OrcamentoConsultaComponent implements OnInit {
   }
 
   consultar() {
-    const entradaSaida = this.orcamentoForm.getRawValue();
+    const orcamento = this.orcamentoForm.getRawValue();
 
-    // this.service.consultaByParams(entradaSaida).subscribe( res => {
-    //   this.movimentacoes = res.data;
-    // });
+    this.service.consultaByParams(orcamento).subscribe( res => {
+      this.orcamentos = res.data;
+      console.log(res.data)
+    });
   }
 
   limpar() {
@@ -58,7 +59,7 @@ export class OrcamentoConsultaComponent implements OnInit {
   }
 
   novo() {
-    this.router.navigate(['entradaSaida/cadastro']);
+    this.router.navigate(['orcamento/cadastro']);
   }
 
   editar(event) {
