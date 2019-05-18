@@ -121,11 +121,11 @@
         <label class="card-title-label">
 
         </label>
-        <!-- <button
+        <button
           class="btn btn-success btn-novo 3-passo-tabela"
           (click)="novo()">
-          Nova Movimentação
-        </button> -->
+          Criar Orçamento
+        </button>
       </div>
     </mat-card-title>
     <div class="hr-line-dashed"></div>
@@ -190,7 +190,26 @@
             </td>
           </tr>
         </tbody>
+        <tfoot>
+            <tr td-data-table-column-row>
+            
+                <th width="200px" td-data-table-column>
+                  
+                </th>
+
+                <th width="200px" td-data-table-column>
+                    total:
+                  </th>
+
+                <th td-data-table-column>
+                    R$ {{total | currency:'BRL': 'symbol'}}
+                </th>
+               
+              </tr>
+
+        </tfoot>
       </table>
+
     </div>
   </mat-card-content>
 </mat-card>

@@ -17,6 +17,7 @@ export class OrcamentoConsultaComponent implements OnInit {
   listClientes: any[];
 
   orcamentos: any[];
+  total =  0;
 
   constructor(private formBuilder: FormBuilder,
     private service: OrcamentoService
@@ -49,13 +50,18 @@ export class OrcamentoConsultaComponent implements OnInit {
 
     this.service.consultaByParams(orcamento).subscribe( res => {
       this.orcamentos = res.data;
-      console.log(res.data)
+      // console.log(res.data)
+
+      this.orcamentos.forEach( orcamento => {
+        this.total += orcamento.valor;
+      })
     });
   }
 
   limpar() {
     this.inicializaForm();
     this.orcamentos = [];
+    this.total = 0;
   }
 
   novo() {
