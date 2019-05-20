@@ -20,11 +20,11 @@ export class OrcamentoService {
   ) {}
 
   populaListas() {
-    return this.http.get<Response>(`${API_JAVA}/entradaSaida/listas`);
+    return this.http.get<Response>(`${API_JAVA}/orcamento/listas`);
   }
 
   populaListasConsulta() {
-    return this.http.get<Response>(`${API_JAVA}/entradaSaida/listas/consulta`);
+    return this.http.get<Response>(`${API_JAVA}/orcamento/listas/consulta`);
   }
 
   salvar(orcamento) {

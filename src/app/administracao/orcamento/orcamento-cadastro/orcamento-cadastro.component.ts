@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 
-import { CPF, TELEFONE, CEP, DATE } from '@mask';
+import { DATE } from '@mask';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ClienteService } from '../../cliente/cliente.service';
-import { EntradaSaidaService } from '../../entrada-saida/entrada-saida.service';
 import { OrcamentoService } from '../orcamento.service';
 
 @Component({
@@ -15,9 +13,6 @@ import { OrcamentoService } from '../orcamento.service';
 export class OrcamentoCadastroComponent implements OnInit {
 
   orcamentoForm: FormGroup;
-  maskCPF = CPF;
-  maskCEP = CEP;
-  maskTel = TELEFONE;
   maskDate = DATE;
 
   id: number;
@@ -34,16 +29,14 @@ export class OrcamentoCadastroComponent implements OnInit {
   listVeiculos: any[];
   listClientes: any[];
 
-  constructor(private formBuilder: FormBuilder,
-    private service: EntradaSaidaService
-    , private router: Router
+  constructor(private formBuilder: FormBuilder
     , private route: ActivatedRoute
     , private serviceOrcamento: OrcamentoService) { }
 
   ngOnInit() {
     this.inicializaForm();
 
-    this.service.populaListas().subscribe(res => {
+    this.serviceOrcamento.populaListas().subscribe(res => {
       this.comboList = res.data;
       this.listVeiculos = this.comboList.veiculos;
       // console.log(this.listVeiculos);
@@ -54,20 +47,6 @@ export class OrcamentoCadastroComponent implements OnInit {
         this.id = params['id'];
 
         if (!this.id) { return; }
-        // this.service.clienteById(this.id).subscribe(res => {
-        //   const cliente = res.data;
-
-        //   this.clienteForm.patchValue({
-        //     nome: cliente.nome,
-        //     cpf: cliente.cpf,
-        //     rg: cliente.rg,
-        //     endereco: cliente.endereco,
-        //     cep: cliente.cep,
-        //     email: cliente.email,
-        //     dataNascimento: cliente.dataNascimento,
-        //     telefone: cliente.telefone,
-        //   });
-        // });
       });
   }
 
@@ -80,11 +59,8 @@ export class OrcamentoCadastroComponent implements OnInit {
     });
   }
 
-
   salvar() {
     let orcamento = this.orcamentoForm.getRawValue();
-
-
 
      if (!this.id) {
       this.serviceOrcamento.salvar(orcamento).add(res => {
@@ -102,7 +78,5 @@ export class OrcamentoCadastroComponent implements OnInit {
   limpar() {
     this.inicializaForm();
   }
-
-
 
 }
