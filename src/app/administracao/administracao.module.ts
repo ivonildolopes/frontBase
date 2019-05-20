@@ -24,6 +24,9 @@ import { OrcamentoCadastroComponent } from './orcamento/orcamento-cadastro/orcam
 import { OrcamentoConsultaComponent } from './orcamento/orcamento-consulta/orcamento-consulta.component';
 import { OrcamentoService } from './orcamento/orcamento.service';
 
+import { PromissoriaCadastroComponent } from './promissoria/promissoria-cadastro/promissoria-cadastro.component';
+import { PromissoriaService } from './promissoria/promissoria.service';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -35,8 +38,9 @@ import { OrcamentoService } from './orcamento/orcamento.service';
   declarations: [VeiculoCadastroComponent, VeiculoConsultaComponent,
                 ClienteCadastroComponent, ClienteConsultaComponent,
                 EntradaSaidaCadastroComponent, EntradaSaidaConsultaComponent,
-                OrcamentoCadastroComponent, OrcamentoConsultaComponent],
-  providers: [VeiculoService, ClienteService, EntradaSaidaService, OrcamentoService,
+                OrcamentoCadastroComponent, OrcamentoConsultaComponent, 
+                PromissoriaCadastroComponent],
+  providers: [VeiculoService, ClienteService, EntradaSaidaService, OrcamentoService, PromissoriaService,
     { provide: ErrorHandler, useClass: ApplicationErrorHandler }]
 })
 export class AdministracaoModule { }

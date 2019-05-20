@@ -14,6 +14,8 @@ import { EntradaSaidaConsultaComponent } from './entrada-saida/entrada-saida-con
 import { OrcamentoCadastroComponent } from './orcamento/orcamento-cadastro/orcamento-cadastro.component';
 import { OrcamentoConsultaComponent } from './orcamento/orcamento-consulta/orcamento-consulta.component';
 
+import { PromissoriaCadastroComponent } from './promissoria/promissoria-cadastro/promissoria-cadastro.component';
+
 const routes: Routes = [
   // { path: 'admin', redirectTo: '/admin/veiculo/cadastro', pathMatch: 'full' },
   { path: '',
@@ -31,6 +33,7 @@ const routes: Routes = [
       { path: 'orcamento/cadastro', component: OrcamentoCadastroComponent},
       { path: 'orcamento/consulta/:id', component: OrcamentoCadastroComponent},
       { path: 'orcamento/consulta', component: OrcamentoConsultaComponent},
+      { path: 'promissoria/cadastro', component: PromissoriaCadastroComponent},
 
     ]
   }
