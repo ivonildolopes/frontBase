@@ -26,6 +26,7 @@ import { OrcamentoService } from './orcamento/orcamento.service';
 
 import { PromissoriaCadastroComponent } from './promissoria/promissoria-cadastro/promissoria-cadastro.component';
 import { PromissoriaService } from './promissoria/promissoria.service';
+import { PromissoriaConsultaComponent } from './promissoria/promissoria-consulta/promissoria-consulta.component';
 
 @NgModule({
   imports: [
@@ -39,7 +40,7 @@ import { PromissoriaService } from './promissoria/promissoria.service';
                 ClienteCadastroComponent, ClienteConsultaComponent,
                 EntradaSaidaCadastroComponent, EntradaSaidaConsultaComponent,
                 OrcamentoCadastroComponent, OrcamentoConsultaComponent, 
-                PromissoriaCadastroComponent],
+                PromissoriaCadastroComponent, PromissoriaConsultaComponent],
   providers: [VeiculoService, ClienteService, EntradaSaidaService, OrcamentoService, PromissoriaService,
     { provide: ErrorHandler, useClass: ApplicationErrorHandler }]
 })

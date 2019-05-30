@@ -1,11 +1,8 @@
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-sm-12" style="background: white">
     <h2>
-      <span
-        matTooltipPosition="right"
-        matTooltip="Tela responsável por Consultar, Criar, Alterar e Excluir Etapas"
-        >Promissorias</span
-      >
+      <span matTooltipPosition="right"
+        matTooltip="Tela responsável por Consultar, Criar, Alterar e Excluir Etapas">Promissorias</span>
     </h2>
     <ol class="breadcrumb">
       <li>
@@ -19,7 +16,7 @@
 </div>
 
 <div class="row" style="margin-top:10px">
-  <pre>{{ promissoriaForm.value | json }}</pre>
+  <!-- <pre>{{ promissoriaForm.value | json }}</pre> -->
   <mat-card class="animated fadeInRight 1-passo">
     <mat-card-title> </mat-card-title>
 
@@ -55,57 +52,34 @@
             </mat-form-field>
           </div> -->
 
-        <div class="col-lg-6 col-sm-12 2-passo">
-              <mat-form-field>
-                <mat-label>Cliente</mat-label>
-                <mat-select formControlName="cliente">
-                  <mat-option>Selecione um Cliente</mat-option>
-                  <mat-option
-                    *ngFor="let cliente of listClientes"
-                    [value]="cliente"
-                    >{{ cliente.nome }}</mat-option
-                  >
-                </mat-select>
-              </mat-form-field>
-            </div>
-
-          <div class="col-lg-2 col-sm-12 2-passo">
-            <mat-form-field class="mat-form-field example-full-width">
-              <input
-                matInput
-                placeholder="valor"
-                formControlName="valor"
-              />
+          <div class="col-lg-6 col-sm-12 2-passo">
+            <mat-form-field>
+              <mat-label>Cliente</mat-label>
+              <mat-select formControlName="cliente">
+                <mat-option>Selecione um Cliente</mat-option>
+                <mat-option *ngFor="let cliente of listClientes" [value]="cliente">{{ cliente.nome }}</mat-option>
+              </mat-select>
             </mat-form-field>
           </div>
 
           <div class="col-lg-2 col-sm-12 2-passo">
             <mat-form-field class="mat-form-field example-full-width">
-              <input
-                matInput
-                placeholder="Qtd de parcelas"
-                formControlName="qtdParcela"
-              />
+              <input matInput placeholder="valor" formControlName="valor" />
+            </mat-form-field>
+          </div>
+
+          <div class="col-lg-2 col-sm-12 2-passo">
+            <mat-form-field class="mat-form-field example-full-width">
+              <input matInput placeholder="Qtd de parcelas" formControlName="qtdParcela" />
             </mat-form-field>
           </div>
 
           <div class="col-lg-2 col-sm-12 6-passo">
             <mat-form-field class="mat-form-field example-full-width">
               <!-- <input matInput placeholder="Data Nascimento" formControlName="dataNascimento" [textMask]="{ mask: maskDate, guide: false }"/> -->
-              <input
-                matInput
-                [matDatepicker]="picker"
-                formControlName="data"
-                placeholder="Data"
-              />
-              <mat-datepicker-toggle
-                matSuffix
-                [for]="picker"
-              ></mat-datepicker-toggle>
-              <mat-datepicker
-                #picker
-                startView="year"                
-              ></mat-datepicker>
+              <input matInput [matDatepicker]="picker" formControlName="data" placeholder="Data" />
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker startView="year"></mat-datepicker>
             </mat-form-field>
           </div>
         </div>
