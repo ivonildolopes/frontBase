@@ -36,4 +36,9 @@ export class PromissoriaService {
 
     return this.http.get<Response>(`${API_JAVA}/promissoria/params`, { params });
   }
+
+  quitarPromissoria(id) {
+    return this.http.put<Response>(`${API_JAVA}/promissoria/${id}`,null)
+    // .subscribe(res => this.notificationService.send(res));
+  }
 }

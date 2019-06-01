@@ -1,7 +1,8 @@
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { PromissoriaService } from './../promissoria.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { NotificationService } from '../../../shared/notification/notification.service';
 
 @Component({
   selector: 'app-promissoria-consulta',
@@ -17,12 +18,16 @@ export class PromissoriaConsultaComponent implements OnInit {
   listClientes: any[];
 
   promissorias: any[];
-  total =  0;
+  totalPendente =  0;
+  totalPago = 0;
+
+  promissoriasPagas: any[];
+  promissoriasPendentes: any[];
 
   constructor(private formBuilder: FormBuilder,
     private service: PromissoriaService
     , private router: Router
-    , private route: ActivatedRoute
+    , private notificationService: NotificationService
     ) { }
 
   ngOnInit() {
@@ -33,8 +38,6 @@ export class PromissoriaConsultaComponent implements OnInit {
       this.listVeiculos = this.comboList.veiculos;
       this.listClientes = this.comboList.clientes;
     });
-
-
   }
 
   inicializaForm() {
@@ -47,30 +50,61 @@ export class PromissoriaConsultaComponent implements OnInit {
   }
 
   consultar() {
+    this.totalPendente =  0;
+    this.totalPago = 0;
+
     const promissoria = this.promissoriaForm.getRawValue();
 
     this.service.consultaByParams(promissoria).subscribe( res => {
       this.promissorias = res.data;
-      // console.log(res.data)
+     
+        this.promissoriasPendentes = this.promissorias.filter((promissoria) => {
+          return !promissoria.isPago;
+        });
 
-      this.promissorias.forEach( orcamento => {
-        this.total += orcamento.valor;
-      })
+        this.promissoriasPendentes.forEach( promissoria => {
+          this.totalPendente += promissoria.valor;
+        });
+
+        // this.calculaTotais(this.promissoriasPendentes, this.promissorias, this.totalPendente);
+
+        this.promissoriasPagas = this.promissorias.filter((promissoria) => {
+          return promissoria.isPago;
+        });
+
+        this.promissoriasPagas.forEach( promissoria => {
+          this.totalPago += promissoria.valor;
+        }); 
+        // this.calculaTotais(this.promissoriasPagas, this.promissorias, this.totalPago);
+      
+    });
+  }
+
+  calculaTotais(promissorias: any[], promissoriasConsulta: any[], total) {
+    promissorias = promissoriasConsulta.filter((promissoria) => {
+       !promissoria.isPago;
+    });
+
+    promissorias.forEach( promissoria => {
+      total += promissoria.valor;
     });
   }
 
   limpar() {
     this.inicializaForm();
     this.promissorias = [];
-    this.total = 0;
+    this.totalPendente = 0;
   }
 
   novo() {
     this.router.navigate(['promissoria/cadastro']);
   }
 
-  editar(event) {
-
+  quitarPromissoria(event) {
+    this.service.quitarPromissoria(event.idPromissoria).subscribe(res =>{
+      this.notificationService.send(res);
+      this.consultar();
+    });
   }
 
   remover(event) {

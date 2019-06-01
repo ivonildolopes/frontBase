@@ -180,11 +180,15 @@
              </td>
   
               <td td-data-table-cell align="center" style="font-size:20px">
-
+                <a (click)="quitarPromissoria(row)">
+                  <i
+                    class="crud-icon fa fa-check-circle 6-passo-tabela"
+                  ></i>
+                </a>
               </td>
             </tr>
           </tbody>
-          <!-- <tfoot>
+          <tfoot>
               <tr td-data-table-column-row>
               
                   <th width="200px" td-data-table-column>
@@ -192,16 +196,24 @@
                   </th>
   
                   <th width="200px" td-data-table-column>
-                      total:
+                      Total Pendente:
                     </th>
   
                   <th td-data-table-column>
-                      R$ {{total | currency:'BRL': 'symbol'}}
+                      R$ {{totalPendente | currency:'BRL': 'symbol'}}
                   </th>
+
+                  <th width="200px" td-data-table-column>
+                    Total Pago:
+                  </th>
+
+                <th td-data-table-column>
+                    R$ {{totalPago | currency:'BRL': 'symbol'}}
+                </th>
                  
                 </tr>
   
-          </tfoot> -->
+          </tfoot>
         </table>
   
       </div>
