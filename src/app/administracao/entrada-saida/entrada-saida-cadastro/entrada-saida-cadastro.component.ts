@@ -32,6 +32,11 @@ export class EntradaSaidaCadastroComponent implements OnInit {
   listVeiculos: any[];
   listClientes: any[];
 
+
+  valorEntrada: 0;
+  valorGasto = 0;
+  valorTotalVeiculo = 0;
+
   constructor(private formBuilder: FormBuilder,
     private service: EntradaSaidaService
     , private router: Router
@@ -106,10 +111,17 @@ export class EntradaSaidaCadastroComponent implements OnInit {
     this.inicializaForm();
   }
 
+  teste(veiculo) {
+    console.log('entrou aqui' + veiculo);
+    this.valorEntrada = veiculo.valorEntrada;
+    this.valorGasto = veiculo.valorGasto;
+    this.valorTotalVeiculo = veiculo.valorTotalVeiculo;
+  }
+
   getCliente(entradaSaida) {
     const cliente: any = {
       nome: '',
-      cpf: '123.456.789-11',
+      cpf: '000.000.000-00',
       rg: '',
       endereco: '',
       telefone: '',

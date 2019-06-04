@@ -46,6 +46,7 @@ export class OrcamentoConsultaComponent implements OnInit {
   }
 
   consultar() {
+    this.total = 0;
     const orcamento = this.orcamentoForm.getRawValue();
 
     this.service.consultaByParams(orcamento).subscribe( res => {

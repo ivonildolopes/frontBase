@@ -31,7 +31,8 @@ export class PromissoriaService {
     let params = new HttpParams();
 
     if (promissoria.cliente) { params = params.set('idCliente' , promissoria.cliente.id); }
-    // if (promissoria.data) { params = params.set('data' , promissoria.data); }
+    if (promissoria.dataInicio) { params = params.set('dataInicio' , promissoria.dataInicio); }
+    if (promissoria.dataFim) { params = params.set('dataFim' , promissoria.dataFim); }
     // if (promissoria.isPago) { params = params.set('isPago' , promissoria.isPago); }
 
     return this.http.get<Response>(`${API_JAVA}/promissoria/params`, { params });
