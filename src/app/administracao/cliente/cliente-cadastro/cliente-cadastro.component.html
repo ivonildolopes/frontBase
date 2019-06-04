@@ -32,13 +32,13 @@
         <div class="row">
           <div class="col-lg-4 col-sm-12 1-passo">
             <mat-form-field class="mat-form-field example-full-width">
-              <input matInput placeholder="Nome" formControlName="nome" />
+              <input matInput placeholder="Nome" formControlName="nome" required />
             </mat-form-field>
           </div>
 
           <div class="col-lg-2 col-sm-12 2-passo">
             <mat-form-field class="mat-form-field example-full-width">
-              <input matInput placeholder="CPF" formControlName="cpf" [textMask]="{ mask: maskCPF, guide: false }" />
+              <input matInput placeholder="CPF" formControlName="cpf" [textMask]="{ mask: maskCPF, guide: false }" required />
             </mat-form-field>
           </div>
 
@@ -50,7 +50,7 @@
 
           <div class="col-lg-2 col-sm-12 6-passo">
             <mat-form-field class="mat-form-field example-full-width">
-              <input matInput placeholder="Telefone" formControlName="telefone" [textMask]="{ mask: maskTel, guide: false }"/>
+              <input matInput placeholder="Telefone" formControlName="telefone" [textMask]="{ mask: maskTel, guide: false }" required/>
             </mat-form-field>
           </div>
 
@@ -67,19 +67,19 @@
         <div class="row">
           <div class="col-lg-4 col-sm-12 4-passo">
             <mat-form-field class="mat-form-field example-full-width">
-              <input matInput placeholder="Endereço" formControlName="endereco"/>
+              <input matInput placeholder="Endereço" formControlName="endereco" required/>
             </mat-form-field>
           </div>
 
           <div class="col-lg-2 col-sm-12 4-passo">
             <mat-form-field class="mat-form-field example-full-width">
-              <input matInput placeholder="cep" formControlName="cep" [textMask]="{ mask: maskCEP, guide: false }"/>
+              <input matInput placeholder="cep" formControlName="cep" [textMask]="{ mask: maskCEP, guide: false }" required/>
             </mat-form-field>
           </div>
 
           <div class="col-lg-6 col-sm-12 5-passo">
             <mat-form-field class="mat-form-field example-full-width">
-              <input matInput placeholder="Email" formControlName="email" />
+              <input matInput placeholder="Email" formControlName="email"required />
             </mat-form-field>
           </div>
         </div>

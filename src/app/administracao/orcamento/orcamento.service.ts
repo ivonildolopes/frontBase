@@ -32,6 +32,11 @@ export class OrcamentoService {
     .subscribe(res => this.notificationService.send(res));
   }
 
+  saveAll(orcamentos) {
+    return this.http.post<Response>(`${API_JAVA}/orcamento/all`, orcamentos)
+    .subscribe(res => this.notificationService.send(res));
+  }
+
   consultaByParams(orcamento) {
     this.loading.display(true);
     let params = new HttpParams();

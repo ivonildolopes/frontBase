@@ -14,6 +14,7 @@ export class OrcamentoCadastroComponent implements OnInit {
 
   orcamentoForm: FormGroup;
   maskDate = DATE;
+  orcamentos =  [];
 
   id: number;
   startDate = new Date(1990, 0, 1);
@@ -73,6 +74,21 @@ export class OrcamentoCadastroComponent implements OnInit {
       //   this.router.navigate(['cliente/consulta']);
       // });
     }
+  }
+
+  saveAll() {
+
+    this.serviceOrcamento.saveAll(this.orcamentos);
+
+  }
+
+  add (){
+    this.orcamentos.push(this.orcamentoForm.getRawValue());
+    this.inicializaForm();
+  }
+
+  remover(orcamento, index) { 
+    this.orcamentos.splice(index, 1);
   }
 
   limpar() {

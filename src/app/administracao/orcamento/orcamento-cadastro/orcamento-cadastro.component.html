@@ -1,11 +1,8 @@
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-sm-12" style="background: white">
     <h2>
-      <span
-        matTooltipPosition="right"
-        matTooltip="Tela responsável por Consultar, Criar, Alterar e Excluir Etapas"
-        >Orçamentos dos Veiculos</span
-      >
+      <span matTooltipPosition="right"
+        matTooltip="Tela responsável por Consultar, Criar, Alterar e Excluir Etapas">Orçamentos dos Veiculos</span>
     </h2>
     <ol class="breadcrumb">
       <li>
@@ -28,92 +25,58 @@
     <mat-card-content>
       <form [formGroup]="orcamentoForm" prependId="false">
         <div class="row">
-          <!-- <app-select-simples [form]="orcamentoForm" controlName="veiculo" [objetos]="listVeiculos"> </app-select-simples> -->
-
-          <!-- <div class="col-lg-12 col-sm-12 2-passo">
-            <mat-radio-group
-              aria-label="Tipo de Movimentação"
-              formControlName="tipo"
-            >
-              <mat-radio-button value="1">Entrada de Veiculos</mat-radio-button>
-              <mat-radio-button value="2">Saida de Veiculos</mat-radio-button>
-            </mat-radio-group>
-          </div> -->
+          
 
           <div class="col-lg-6 col-sm-12 2-passo">
             <mat-form-field>
               <mat-label>Veiculo</mat-label>
               <mat-select formControlName="veiculo">
                 <mat-option>Selecione um veiculos</mat-option>
-                <mat-option
-                  *ngFor="let veiculo of listVeiculos"
-                  [value]="veiculo"
-                  >{{ veiculo.placa }} - {{ veiculo.modelo }} -
-                  {{ veiculo.anoFabricacao }}/{{ veiculo.anoModelo }} - {{veiculo.cor}}</mat-option
-                >
+                <mat-option *ngFor="let veiculo of listVeiculos" [value]="veiculo">{{ veiculo.placa }} -
+                  {{ veiculo.modelo }} -
+                  {{ veiculo.anoFabricacao }}/{{ veiculo.anoModelo }} - {{veiculo.cor}}</mat-option>
               </mat-select>
             </mat-form-field>
           </div>
 
-        <!-- <div class="col-lg-6 col-sm-12 2-passo" *ngIf="orcamentoForm.controls.tipo.value == 2">
-              <mat-form-field>
-                <mat-label>Cliente</mat-label>
-                <mat-select formControlName="cliente">
-                  <mat-option>Selecione um Cliente</mat-option>
-                  <mat-option
-                    *ngFor="let cliente of listClientes"
-                    [value]="cliente"
-                    >{{ cliente.nome }}</mat-option
-                  >
-                </mat-select>
-              </mat-form-field>
-            </div> -->
-
+         
           <div class="col-lg-2 col-sm-12 2-passo">
             <mat-form-field class="mat-form-field example-full-width">
-              <input
-                matInput
-                placeholder="valor"
-                formControlName="valor"
-              />
+              <input matInput placeholder="valor" formControlName="valor" />
             </mat-form-field>
           </div>
 
           <div class="col-lg-2 col-sm-12 6-passo">
             <mat-form-field class="mat-form-field example-full-width">
               <!-- <input matInput placeholder="Data Nascimento" formControlName="dataNascimento" [textMask]="{ mask: maskDate, guide: false }"/> -->
-              <input
-                matInput
-                [matDatepicker]="picker"
-                formControlName="data"
-                placeholder="Data"
-              />
-              <mat-datepicker-toggle
-                matSuffix
-                [for]="picker"
-              ></mat-datepicker-toggle>
-              <mat-datepicker
-                #picker
-                startView="year"                
-              ></mat-datepicker>
+              <input matInput [matDatepicker]="picker" formControlName="data" placeholder="Data" />
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker startView="year"></mat-datepicker>
             </mat-form-field>
           </div>
 
           <div class="col-lg-12 col-sm-12">
             <mat-form-field class="example-full-width">
-              <input matInput #message maxlength="256" placeholder="Message" formControlName="descricao">
+              <input matInput #message maxlength="256" placeholder="Descrição" formControlName="descricao">
               <mat-hint align="start"><strong>Escreva alguma descrição do orçamento</strong> </mat-hint>
               <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
             </mat-form-field>
           </div>
         </div>
 
+        <!-- <button class="btn btn-success" (click)="add()" mat-button>
+            <i class="fa fa-plus-circle fa-4"></i>
+        </button> -->
+        <a (click)="add()">
+            <i class="tamanhoButton fa fa-plus-circle fa-4 text-success"></i>
+          </a> 
+
         <div class="hr-line-dashed"></div>
       </form>
     </mat-card-content>
 
     <mat-card-actions>
-      <button class="btn btn-primary" (click)="salvar()" mat-button>
+      <button class="btn btn-primary" (click)="saveAll()" mat-button [disabled]="orcamentos.length < 1">
         Salvar
       </button>
       <!-- <button class="btn btn-warning" (click)="limpar()" mat-button>
@@ -121,4 +84,66 @@
       </button> -->
     </mat-card-actions>
   </mat-card>
+</div>
+
+
+<div class="row" style="margin-top:10px">
+  <mat-card class="animated fadeInRight 1-passo-tabela">
+    <mat-card-content>
+
+      <div class="table-responsive">
+        <table td-data-table class="table-striped table-hover">
+          <thead>
+            <tr td-data-table-column-row>
+
+              <th width="200px" td-data-table-column>
+                Veiculo
+              </th>
+              <th width="250px" td-data-table-column>
+                descrição
+              </th>
+              <th width="160px" td-data-table-column>
+                Valor
+              </th>
+              <th width="200px" td-data-table-column>
+                Data
+              </th>
+
+              <th td-data-table-column width="60px">
+                <span>Opções</span>
+              </th>
+            </tr>
+          </thead>
+
+          <tbody class="2-passo-tabela">
+            <tr td-data-table-row *ngFor="let row of orcamentos; let i = index">
+              <td td-data-table-cell style="word-break:break-all">
+                {{ row.veiculo.placa }} - {{ row.veiculo.modelo }}
+              </td>
+
+              <td td-data-table-cell style="word-break:break-all">
+                {{ row.descricao }}
+              </td>
+
+              <td td-data-table-cell style="word-break:break-all">
+                {{ row.valor  | currency:'BRL': 'symbol'  }}
+              </td>
+
+              <td td-data-table-cell style="word-break:break-all">
+                {{ row.data | date: 'dd/MM/yyyy' }}
+              </td>
+
+              <td td-data-table-cell align="center" style="font-size:20px">
+                  <a (click)="remover(row, i)">
+                    <i class="crud-icon fa fa-trash text-danger 6-passo-tabela"></i>
+                  </a> 
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </mat-card-content>
+  </mat-card>
+
 </div>
