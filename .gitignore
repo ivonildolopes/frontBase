@@ -4,6 +4,8 @@
 /dist
 /tmp
 /out-tsc
+/war:
+/war
 
 # dependencies
 /node_modules
@@ -36,4 +38,6 @@ testem.log
 
 # System Files
 .DS_Store
-Thumbs.db
+Thumbs.db4
+
+

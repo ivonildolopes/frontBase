@@ -1,10 +1,12 @@
 {
   "name": "front-base",
-  "version": "0.0.0",
+  "version": "0.0.4",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build-prod": "npm --no-git-tag-version version patch && node ./replace.build.prod.js && ng build --environment=prod --aot && grunt war",
+    "build-homo": "npm --no-git-tag-version version patch && node ./replace.build.homo.js && ng build --environment=homo --aot && grunt war",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -44,6 +46,9 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "codelyzer": "~4.2.1",
+    "cross-env": "^5.0.5",
+    "grunt": "^1.0.3",
+    "grunt-war": "^0.5.1",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~1.7.1",
