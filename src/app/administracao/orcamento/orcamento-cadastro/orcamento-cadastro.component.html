@@ -42,7 +42,8 @@
          
           <div class="col-lg-2 col-sm-12 2-passo">
             <mat-form-field class="mat-form-field example-full-width">
-              <input matInput placeholder="valor" formControlName="valor" />
+              <input matInput placeholder="valor" formControlName="valor" currencyMask
+              [options]="brazilianRealMaskOptions" />
             </mat-form-field>
           </div>
 

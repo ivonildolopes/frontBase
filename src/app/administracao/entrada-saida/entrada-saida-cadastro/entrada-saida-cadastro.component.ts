@@ -37,6 +37,14 @@ export class EntradaSaidaCadastroComponent implements OnInit {
   valorGasto = 0;
   valorTotalVeiculo = 0;
 
+  public brazilianRealMaskOptions = {
+    prefix: 'R$ ',
+    thousands: '.',
+    decimal: ',',
+    precision: 2,
+    allowNegative: false
+  };
+
   constructor(private formBuilder: FormBuilder,
     private service: EntradaSaidaService
     , private router: Router

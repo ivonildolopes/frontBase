@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 
 import { AdministracaoRoutingModule } from './administracao-routing.module';
 
+import { CurrencyMaskModule } from 'ng2-currency-mask';
+
 import { MaterialModule } from '../material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared';
@@ -32,6 +34,7 @@ import { PromissoriaConsultaComponent } from './promissoria/promissoria-consulta
   imports: [
     CommonModule,
     SharedModule,
+    CurrencyMaskModule,
     AdministracaoRoutingModule,
     ReactiveFormsModule,
     MaterialModule

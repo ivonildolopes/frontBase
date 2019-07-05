@@ -26,6 +26,14 @@ export class OrcamentoCadastroComponent implements OnInit {
     mask: [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/]
   };
 
+  public brazilianRealMaskOptions = {
+    prefix: 'R$ ',
+    thousands: '.',
+    decimal: ',',
+    precision: 2,
+    allowNegative: false
+  };
+
   comboList: any;
   listVeiculos: any[];
   listClientes: any[];
