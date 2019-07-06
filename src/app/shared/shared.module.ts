@@ -8,6 +8,7 @@ import { NotificationService } from './notification/notification.service';
 import { TextMaskModule } from 'angular2-text-mask';
 import { SelectSimplesComponent } from './seletc/select-simples/select-simples.component';
 import { MaterialModule } from '../material.module';
+import { DatepickerCustomComponent } from './datepicker/datepicker-custom/datepicker-custom.component';
 
 @NgModule({
   imports: [
@@ -23,9 +24,10 @@ import { MaterialModule } from '../material.module';
     MaterialModule
   ],
   exports: [
-    TextMaskModule
+    TextMaskModule,
+    DatepickerCustomComponent
   ],
-  declarations: [SelectSimplesComponent],
+  declarations: [SelectSimplesComponent, DatepickerCustomComponent],
   providers: [NotificationService]
 })
 export class SharedModule {
