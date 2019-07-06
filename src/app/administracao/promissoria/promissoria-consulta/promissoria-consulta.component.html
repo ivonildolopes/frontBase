@@ -55,41 +55,23 @@
               </div>
   
             <div class="col-lg-2 col-sm-12 6-passo">
-              <mat-form-field class="mat-form-field example-full-width">                
-                <input
-                  matInput
-                  [matDatepicker]="picker"
-                  formControlName="dataInicio"
-                  placeholder="Data Inicio"
-                />
-                <mat-datepicker-toggle
-                  matSuffix
-                  [for]="picker"
-                ></mat-datepicker-toggle>
-                <mat-datepicker
-                  #picker
-                  startView="year"
-                ></mat-datepicker>
-              </mat-form-field>
+                <datepicker-custom formControlName="dataInicio" [required]="false" [placeholder]="'Data Inicio'">
+                  </datepicker-custom>
+              <!-- <mat-form-field class="mat-form-field example-full-width">                
+                <input matInput [matDatepicker]="picker" formControlName="dataInicio" placeholder="Data Inicio" />
+                <mat-datepicker-toggle matSuffix [for]="picker" ></mat-datepicker-toggle>
+                <mat-datepicker #picker startView="year" ></mat-datepicker>
+              </mat-form-field> -->
             </div>
   
             <div class="col-lg-2 col-sm-12 6-passo">
-              <mat-form-field class="mat-form-field example-full-width">
-                <input
-                  matInput
-                  [matDatepicker]="picker1"
-                  formControlName="dataFim"
-                  placeholder="Data Fim"
-                />
-                <mat-datepicker-toggle
-                  matSuffix
-                  [for]="picker1"
-                ></mat-datepicker-toggle>
-                <mat-datepicker
-                  #picker1
-                  startView="year"
-                ></mat-datepicker>
-              </mat-form-field>
+                <datepicker-custom formControlName="dataFim" [required]="false" [placeholder]="'Data Fim'">
+                  </datepicker-custom>
+              <!-- <mat-form-field class="mat-form-field example-full-width">
+                <input matInput [matDatepicker]="picker1" formControlName="dataFim" placeholder="Data Fim" />
+                <mat-datepicker-toggle matSuffix [for]="picker1" ></mat-datepicker-toggle>
+                <mat-datepicker #picker1 startView="year" ></mat-datepicker>
+              </mat-form-field> -->
             </div>
           </div>
   

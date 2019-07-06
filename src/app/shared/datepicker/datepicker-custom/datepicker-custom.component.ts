@@ -30,7 +30,7 @@ export class DatepickerCustomComponent implements ControlValueAccessor {
 
   @Input() maxDate: Date;
   @Input() required: Boolean;
-  // @Input() placeholder: string;
+  @Input() placeholder: string;
   @Input() disabled: Boolean;
 
   constructor(

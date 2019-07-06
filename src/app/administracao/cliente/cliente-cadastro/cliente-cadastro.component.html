@@ -55,12 +55,13 @@
           </div>
 
           <div class="col-lg-2 col-sm-12 6-passo" *ngIf="id == null">
-            <mat-form-field class="mat-form-field example-full-width">
-              <!-- <input matInput placeholder="Data Nascimento" formControlName="dataNascimento" [textMask]="{ mask: maskDate, guide: false }"/> -->
+              <datepicker-custom formControlName="dataNascimento" [required]="false" [placeholder]="'Data de Nascimento'">
+                </datepicker-custom>
+            <!-- <mat-form-field class="mat-form-field example-full-width">              
               <input matInput [matDatepicker]="picker" formControlName="dataNascimento" placeholder="Data Nascimento">
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
-            </mat-form-field>
+            </mat-form-field> -->
           </div>
         </div>
 
@@ -73,7 +74,7 @@
 
           <div class="col-lg-2 col-sm-12 4-passo">
             <mat-form-field class="mat-form-field example-full-width">
-              <input matInput placeholder="cep" formControlName="cep" [textMask]="{ mask: maskCEP, guide: false }" required/>
+              <input matInput placeholder="Cep" formControlName="cep" [textMask]="{ mask: maskCEP, guide: false }" required/>
             </mat-form-field>
           </div>
 
