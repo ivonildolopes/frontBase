@@ -9,6 +9,7 @@ import { FirebaseService } from './firebase.service';
 import { ContatoDataService } from './contato-data.service';
 import { FirebaseRoutingModule } from './firebase-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PrimeModule } from '../prime.module';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     FirebaseRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PrimeModule
 
   ],
   providers: [FirebaseService, ContatoDataService,{ provide: ErrorHandler, useClass: ApplicationErrorHandler }],

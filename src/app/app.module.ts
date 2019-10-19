@@ -18,6 +18,7 @@ import { MaterialModule } from './material.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AdministracaoModule } from './administracao/administracao.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PrimeModule } from './prime.module';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     NoopAnimationsModule,
     ReactiveFormsModule,
     MaterialModule,
+    PrimeModule,
     AppRoutingModule,
     ContainerModule,
     PdfModule,
