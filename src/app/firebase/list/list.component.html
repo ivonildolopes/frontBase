@@ -1,3 +1,6 @@
+<div class="container">
+
+
 <div class="card mt-2 col-sm-3" *ngFor="let contato of contatos | async">
 
   <div class="card-body">
@@ -9,4 +12,5 @@
       <button class="btn btn-primary" (click)="update(contato, contato.key)"> editar</button>
       <button class="btn btn-danger" (click)="delete(contato.key)"> deletar</button>
   </div>
+</div>
 </div>
